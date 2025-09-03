@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", function () {
       popupModal.classList.add("flex");
       modalShown = true; // ✅ Prevent showing again
     }
-  }, 2000);
+  }, 20000);
 
   // Close modal
   popupClose.addEventListener("click", () => {
