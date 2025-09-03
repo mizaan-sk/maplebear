@@ -89,7 +89,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
          <div id="form" class="w-full px-2 pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0">
-      <div class="w-full 2xl:pt-[90px] xl:pt-[40px] lg:max-w-full xl:max-w-[420px]">
+      <div class="w-full 2xl:pt-[130px] xl:pt-[70px] lg:max-w-full xl:max-w-[420px]">
         <div class="bg-white rounded-[20px] shadow-md p-3 sm:p-7 md:p-6 lg:p-6 xl:p-2 2xl:px-5 2xl:py-4 border-2 border-yellow-400">
           
           <!-- Title -->
@@ -121,6 +121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 type="tel" 
                 id="phone" 
                 name="phone" 
+                maxlength="10" pattern="\d*"
                 placeholder="Phone Number" 
                 class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 placeholder-gray-500"
               />
@@ -256,6 +257,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           id="popupPhone" 
           name="popupPhone" 
           placeholder="Phone Number" 
+           maxlength="10" pattern="\d*"
           class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500"
         />
         <p id="popupPhone-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
@@ -915,7 +917,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Phone -->
       <div>
-        <input type="tel" id="brochurePhone" name="brochurePhone" placeholder="Phone Number" 
+        <input type="tel" id="brochurePhone" name="brochurePhone" placeholder="Phone Number"  maxlength="10" pattern="\d*"
           class="w-full border border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-400">
         <p id="brochurePhone-error" class="text-red-500 text-xs mt-1 hidden"></p>
       </div>

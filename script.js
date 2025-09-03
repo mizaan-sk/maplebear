@@ -1,101 +1,119 @@
 const form = document.getElementById("enquiry-form");
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-      // Clear previous errors
-      document.querySelectorAll('[id$="-error"]').forEach(error => {
-        error.classList.add("hidden");
-      });
+  // Clear previous errors
+  document.querySelectorAll('[id$="-error"]').forEach(error => {
+    error.classList.add("hidden");
+  });
 
-      let isValid = true;
+  let isValid = true;
 
-      const fullName = document.getElementById("fullName").value.trim();
-      const phone = document.getElementById("phone").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const state = document.getElementById("state").value;
-      const investment = document.getElementById("investment").value;
-      const timeline = document.getElementById("timeline").value;
+  const fullName = document.getElementById("fullName").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const state = document.getElementById("state").value;
+  const investment = document.getElementById("investment").value;
+  const timeline = document.getElementById("timeline").value;
 
-      // Validation
-      if (!fullName) {
-        document.getElementById("fullName-error").textContent = "Name is required";
-        document.getElementById("fullName-error").classList.remove("hidden");
-        isValid = false;
+  // Validation
+  if (!fullName) {
+    document.getElementById("fullName-error").textContent = "Name is required";
+    document.getElementById("fullName-error").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (!phone) {
+    document.getElementById("phone-error").textContent = "Phone number is required";
+    document.getElementById("phone-error").classList.remove("hidden");
+    isValid = false;
+  } else if (!/^\d{10}$/.test(phone)) {
+    document.getElementById("phone-error").textContent = "Phone number must be 10 digits";
+    document.getElementById("phone-error").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (!email) {
+    document.getElementById("email-error").textContent = "Email is required";
+    document.getElementById("email-error").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (!state) {
+    document.getElementById("state-error").textContent = "State is required";
+    document.getElementById("state-error").classList.remove("hidden");
+    isValid = false;
+  }
+  if (!investment) {
+    document.getElementById("investment-error").textContent = "Investment range is required";
+    document.getElementById("investment-error").classList.remove("hidden");
+    isValid = false;
+  }
+  if (!timeline) {
+    document.getElementById("timeline-error").textContent = "Timeline is required";
+    document.getElementById("timeline-error").classList.remove("hidden");
+    isValid = false;
+  }
+
+  if (!isValid) return;
+
+  // Show loading
+  const submitButton = document.getElementById("submit-button");
+  const originalText = submitButton.innerHTML;
+  submitButton.innerHTML = "Submitting...";
+  submitButton.disabled = true;
+
+  // Prepare form data
+  const formData = {
+    fullName: fullName,
+    phone: String(phone),
+    email: email,
+    state: state,
+    investment: investment,
+    timeline: timeline,
+    utm_source: document.getElementById("utm_source").value,
+    utm_ad: document.getElementById("utm_ad").value,
+    utm_campaign: document.getElementById("utm_campaign").value,
+    utm_placement: document.getElementById("utm_placement").value,
+    utm_keyword: document.getElementById("utm_keyword").value,
+    gclid: document.getElementById("gclid").value,
+    fbclid: document.getElementById("fbclid").value,
+  };
+
+  console.log("Sending data:", formData);
+
+  try {
+    await fetch(
+      "https://script.google.com/macros/s/AKfycbxHWDPjCQeDGt-HK4GJAWKWj4kRJXm_fdSP_AAfEkYdmRtV2z_NN-A-0k6du78yYVcx/exec",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+        mode: "no-cors",
       }
-      if (!phone) {
-        document.getElementById("phone-error").textContent = "Phone number is required";
-        document.getElementById("phone-error").classList.remove("hidden");
-        isValid = false;
-      }
-      if (!email) {
-        document.getElementById("email-error").textContent = "Email is required";
-        document.getElementById("email-error").classList.remove("hidden");
-        isValid = false;
-      }
-      
-      if (!state) {
-        document.getElementById("state-error").textContent = "State is required";
-        document.getElementById("state-error").classList.remove("hidden");
-        isValid = false;
-      }
-      if (!investment) {
-        document.getElementById("investment-error").textContent = "Investment range is required";
-        document.getElementById("investment-error").classList.remove("hidden");
-        isValid = false;
-      }
-      if (!timeline) {
-        document.getElementById("timeline-error").textContent = "Timeline is required";
-        document.getElementById("timeline-error").classList.remove("hidden");
-        isValid = false;
-      }
+    );
 
-      if (!isValid) return;
+    // ✅ Reset the form after successful submission
+    form.reset();
 
-      // Show loading
-      const submitButton = document.getElementById("submit-button");
-      const originalText = submitButton.innerHTML;
-      submitButton.innerHTML = "Submitting...";
-      submitButton.disabled = true;
-
-      // Prepare form data
-      const formData = {
-        fullName: fullName,
-        phone: String(phone),
-        email: email,
-        state: state,
-        investment: investment,
-        timeline: timeline,
-        utm_source: document.getElementById("utm_source").value,
-        utm_ad: document.getElementById("utm_ad").value,
-        utm_campaign: document.getElementById("utm_campaign").value,
-        utm_placement: document.getElementById("utm_placement").value,
-        utm_keyword: document.getElementById("utm_keyword").value,
-        gclid: document.getElementById("gclid").value,
-        fbclid: document.getElementById("fbclid").value,
-      };
-
-      console.log("Sending data:", formData);
-
-      try {
-        await fetch("https://script.google.com/macros/s/AKfycbxHWDPjCQeDGt-HK4GJAWKWj4kRJXm_fdSP_AAfEkYdmRtV2z_NN-A-0k6du78yYVcx/exec", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-          mode: "no-cors"
-        });
-
-        // Redirect to thank-you page
-        window.location.href = "thank-you.html";
-
-      } catch (error) {
-        console.error("Submission error:", error);
-        // alert("❌ Submission failed. Please try again.");
-      } finally {
-        submitButton.innerHTML = originalText;
-        submitButton.disabled = false;
-      }
+    // ✅ Reset select colors back to gray placeholder
+    document.querySelectorAll("select").forEach(select => {
+      select.style.color = "#6B7280"; // Tailwind's text-gray-500
     });
+
+    // ✅ Redirect to thank-you page
+    window.location.href = "thank-you.html";
+
+  } catch (error) {
+    console.error("Submission error:", error);
+    alert("❌ Submission failed. Please try again.");
+  } finally {
+    submitButton.innerHTML = originalText;
+    submitButton.disabled = false;
+  }
+});
+
 
 
 
@@ -285,6 +303,7 @@ getUTMParams();
 prefillUTMFromLocalStorage();
 
 // Handle Form Submission
+// Handle Form Submission
 brochureForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -308,8 +327,8 @@ brochureForm.addEventListener("submit", async (e) => {
     document.getElementById("brochureName-error").classList.remove("hidden");
     isValid = false;
   }
-  if (!phone) {
-    document.getElementById("brochurePhone-error").textContent = "Phone is required";
+  if (!phone || !/^\d{10}$/.test(phone)) {
+    document.getElementById("brochurePhone-error").textContent = "Valid 10-digit phone required";
     document.getElementById("brochurePhone-error").classList.remove("hidden");
     isValid = false;
   }
@@ -331,7 +350,7 @@ brochureForm.addEventListener("submit", async (e) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ 
-        fullName: brochureName, // ✅ FIXED NAME FIELD
+        fullName: brochureName,
         phone,
         email,
         utm_source,
@@ -345,9 +364,20 @@ brochureForm.addEventListener("submit", async (e) => {
       mode: "no-cors"
     });
 
-    window.open("Maple_Franchise.pdf", "_blank");
+    // ✅ Trigger brochure download
+    const link = document.createElement("a");
+    link.href = "Maple_Franchise.pdf"; // your PDF file
+    link.download = "Maple_Franchise.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // ✅ Reset form & hide modal
     brochureModal.classList.add("hidden");
     brochureForm.reset();
+
+    // ✅ Redirect to thank-you page
+    window.location.href = "thank-you.html";
 
   } catch (error) {
     console.error("Form submission error:", error);
@@ -356,6 +386,7 @@ brochureForm.addEventListener("submit", async (e) => {
     submitBtn.disabled = false;
   }
 });
+
 
 
 // sticky button starts 
