@@ -210,6 +210,7 @@ document.addEventListener("DOMContentLoaded", function () {
         body: JSON.stringify(formData),
         mode: "no-cors"
       });
+      popupForm.reset();
 
       modalShown = true; // ✅ Don't reopen after submission
       clearTimeout(modalTimer);
