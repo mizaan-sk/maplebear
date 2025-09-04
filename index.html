@@ -76,6 +76,50 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   box-shadow: none !important;
   background: transparent !important;
 }
+#banner-slider {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .slider-wrapper {
+    display: flex;
+    width: 100%;
+    transition: transform 0.6s ease-in-out;
+  }
+
+  .slide {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  /* Show desktop slides only on desktop */
+  .desktop-slide {
+    display: none;
+  }
+
+  .mobile-slide {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-slide {
+      display: block;
+    }
+    .mobile-slide {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .mobile-slide {
+      display: block;
+    }
+    .desktop-slide {
+      display: none;
+    }
+  }
 
 </style>
 </head>
@@ -108,27 +152,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Banner Section start  -->
-    <div class="relative w-full overflow-hidden pt-[70px]">
-        <div class="relative w-full hidden md:block md:aspect-[21/9]">
-            <img src="/images/bannerdektop.webp" alt="Desktop Slide 1" class="object-cover w-full h-full">
+<div class="relative w-full overflow-hidden pt-[70px]">
+  <!-- Slider Container -->
+  <div id="banner-slider" class="relative w-full overflow-hidden">
+    <div class="slider-wrapper">
+      <!-- Desktop Slides -->
+      <div class="slide desktop-slide">
+        <img src="/images/bannerdektop.webp" alt="Desktop Slide 1" class="object-cover w-full h-full" />
+      </div>
+      <div class="slide desktop-slide">
+        <img src="/images/bannerdektop.webp" alt="Desktop Slide 2" class="object-cover w-full h-full" />
+      </div>
+
+      <!-- Mobile Slides -->
+      <div class="slide mobile-slide">
+        <img src="/images/mobban.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
+      </div>
+      <div class="slide mobile-slide">
+        <img src="/images/mobban.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Form Section (Unchanged) -->
+  <div
+    id="form"
+    class="w-full px-2 md:py-0 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0"
+  >
+    <div class="w-full 2xl:pt-[130px] xl:pt-[70px] lg:max-w-full xl:max-w-[420px]">
+      <div class="bg-white rounded-[20px] shadow-md p-3 sm:p-7 md:p-6 lg:p-6 xl:p-2 2xl:px-5 2xl:py-4 border-2 border-yellow-400">
+        <div class="text-center mb-2">
+          <h2 class="text-2xl font-bold text-[#0d1b42] mb-2">Partner With Us</h2>
         </div>
-
-        <div class="relative md:hidden block w-full">
-            <img src="/images/mobban.webp" alt="mobile banner" class="w-full h-auto object-cover">
-        </div>
-
-         <div id="form" class="w-full px-2 md: py-0 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0">
-      <div class="w-full 2xl:pt-[130px] xl:pt-[70px] lg:max-w-full xl:max-w-[420px]">
-        <div class="bg-white rounded-[20px] shadow-md p-3 sm:p-7 md:p-6 lg:p-6 xl:p-2 2xl:px-5 2xl:py-4 border-2 border-yellow-400">
-          
-          <!-- Title -->
-          <div class="text-center mb-2">
-            <h2 class="text-2xl font-bold text-[#0d1b42] mb-2" >Partner With Us</h2>
-          </div>
-
-          <!-- Status Message -->
-          <div id="status-message" class="text-center font-medium mb-4 text-sm hidden"></div>
-
+        <div id="status-message" class="text-center font-medium mb-4 text-sm hidden"></div>
           <!-- Form -->
           <form id="enquiry-form" class="space-y-3">
 

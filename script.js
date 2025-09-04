@@ -115,7 +115,86 @@ form.addEventListener("submit", async (e) => {
 });
 
 
+// Slider Code of banner start 
+ document.addEventListener("DOMContentLoaded", function () {
+    const sliderWrapper = document.querySelector("#banner-slider .slider-wrapper");
 
+    // Detect if desktop or mobile slides should be used
+    const slides = Array.from(
+      document.querySelectorAll(
+        window.innerWidth >= 768
+          ? "#banner-slider .desktop-slide"
+          : "#banner-slider .mobile-slide"
+      )
+    );
+
+    let currentIndex = 1; // Start from the first actual slide (after clone)
+    const totalSlides = slides.length;
+
+    if (totalSlides <= 1) return; // Stop slider if there's only one image
+
+    // Clone first and last slides for seamless infinite effect
+    const firstClone = slides[0].cloneNode(true);
+    const lastClone = slides[slides.length - 1].cloneNode(true);
+
+    sliderWrapper.insertBefore(lastClone, slides[0]);
+    sliderWrapper.appendChild(firstClone);
+
+    const allSlides = document.querySelectorAll(
+      window.innerWidth >= 768
+        ? "#banner-slider .desktop-slide"
+        : "#banner-slider .mobile-slide"
+    );
+
+    let slideWidth = sliderWrapper.clientWidth;
+
+    function goToSlide(index) {
+      sliderWrapper.style.transition = "transform 0.6s ease-in-out";
+      sliderWrapper.style.transform = `translateX(-${index * slideWidth}px)`;
+    }
+
+    function nextSlide() {
+      currentIndex++;
+      goToSlide(currentIndex);
+
+      // Reset to first slide seamlessly when reaching the end
+      if (currentIndex === allSlides.length - 1) {
+        setTimeout(() => {
+          sliderWrapper.style.transition = "none";
+          currentIndex = 1;
+          sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }, 600);
+      }
+    }
+
+    function prevSlide() {
+      currentIndex--;
+      goToSlide(currentIndex);
+
+      // Reset to last slide seamlessly when going backward
+      if (currentIndex === 0) {
+        setTimeout(() => {
+          sliderWrapper.style.transition = "none";
+          currentIndex = totalSlides;
+          sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+        }, 600);
+      }
+    }
+
+    // Initialize first position
+    sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+
+    // Auto-play every 3 seconds
+    setInterval(nextSlide, 3000);
+
+    // Handle window resize
+    window.addEventListener("resize", () => {
+      slideWidth = sliderWrapper.clientWidth;
+      sliderWrapper.style.transition = "none";
+      sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+    });
+  });
+// slider code of banner ends here 
 
 // Modal form start 
 document.addEventListener("DOMContentLoaded", function () {
