@@ -241,27 +241,22 @@ document.addEventListener("DOMContentLoaded", function () {
   
 // Sticky button start 
 // Get Elements
-const downloadBtn = document.getElementById("downloadBtn");
+// Get Elements
+const downloadBtns = document.querySelectorAll(".downloadBtn"); // ✅ Select all buttons
 const brochureModal = document.getElementById("brochureModal");
 const closeModal = document.getElementById("closeModal");
 const brochureForm = document.getElementById("brochureForm");
-// const enquireBtn = document.getElementById("enquireBtn");
 const modalTitle = document.getElementById("modalTitle");
 const modalSubtitle = document.getElementById("modalSubtitle");
 
-// Show Modal for Download Brochure
-downloadBtn.addEventListener("click", () => {
-  modalTitle.textContent = "Download Brochure";
-  modalSubtitle.textContent = "Fill in your details to get the brochure.";
-  brochureModal.classList.remove("hidden");
+// Attach click event to ALL download buttons
+downloadBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    modalTitle.textContent = "Download Brochure";
+    modalSubtitle.textContent = "Fill in your details to get the brochure.";
+    brochureModal.classList.remove("hidden");
+  });
 });
-
-// Show Modal for Enquire Now
-// enquireBtn.addEventListener("click", () => {
-//   modalTitle.textContent = "Enquire Now";
-//   modalSubtitle.textContent = "Fill in your details and we’ll contact you soon.";
-//   brochureModal.classList.remove("hidden");
-// });
 
 // Close Modal
 closeModal.addEventListener("click", () => {
@@ -462,14 +457,15 @@ brochureForm.addEventListener("submit", async (e) => {
   function loadAwards(year) {
     wrapper.innerHTML = "";
     awardsData[year].forEach((award) => {
-      wrapper.innerHTML += `
-        <div class="swiper-slide flex flex-col items-center text-center p-6 border rounded-2xl shadow hover:shadow-lg transition bg-white">
-          <div class="border-2 border-yellow-400 rounded-xl p-2">
-            <img src="${award.img}" alt="Award" class="w-40 h-40 object-contain" />
-          </div>
-          <p class="mt-4 text-sm md:text-base font-medium text-gray-800">${award.text}</p>
-        </div>
-      `;
+   wrapper.innerHTML += `
+<div class="swiper-slide flex flex-col items-center text-center p-6 border bg-white transition">
+    <div class="border-2 border-yellow-400 rounded-xl p-2">
+      <img src="${award.img}" alt="Award" class="w-40 h-40 object-contain" />
+    </div>
+    <p class="mt-4 text-sm md:text-base font-medium text-gray-800">${award.text}</p>
+  </div>
+`;
+
     });
 
     // Destroy old swiper before reinitializing

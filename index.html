@@ -48,6 +48,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   html {
     scroll-behavior: smooth;
   }
+ /* Remove any shadow from Swiper slides/cards */
+/* Remove all unwanted shadows from Swiper */
+.awardsSwiper,
+.awardsSwiper .swiper-wrapper,
+.awardsSwiper .swiper-slide {
+  box-shadow: none !important; /* Remove shadows */
+  -webkit-box-shadow: none !important; /* Safari fix */
+  background: transparent; /* No background effects */
+}
+
+/* Optional: Reset any weird background */
+.awardsSwiper .swiper-slide {
+  background-color: #fff !important; /* Keep slides clean */
+  border: none !important; /* Remove unexpected borders */
+}
+
+/* Fix pagination bullets extra styles */
+.awardsSwiper .swiper-pagination-bullet {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* If using Swiper scrollbar */
+.awardsSwiper .swiper-scrollbar {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
 </style>
 </head>
 <body class=" font-lato">
@@ -361,12 +389,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      style="writing-mode: vertical-rl;">
     APPLY NOW
   </a>
-<button 
-    id="downloadBtn" 
-  class="bg-[#D01E24] text-white uppercase text-[13px] font-semibold tracking-[.6px] rotate-180 writing-mode-vertical px-2 py-2 rounded-r-[5px] shadow-lg hover:bg-[#C53030] transition duration-300"
-     style="writing-mode: vertical-rl;">
-    Download Brochure
-  </button>
+<button
+  class="downloadBtn bg-[#D01E24] text-white uppercase text-[13px] font-semibold tracking-[.6px] rotate-180 writing-mode-vertical px-2 py-2 rounded-r-[5px] shadow-lg hover:bg-[#C53030] transition duration-300"
+  style="writing-mode: vertical-rl;"
+>
+  Download Brochure
+</button>
   <!-- Download Brochure Button -->
 </div>
 
@@ -831,7 +859,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="mt-3 md:mt-0">
       <a href="#"
          class="inline-block bg-[#D01E24] hover:bg-red-700 md:px-7 md:py-5 py-2 px-2 rounded-md">
-        <span class="block bg-[#0C1E45] text-[15px] md:text-2xl text-white px-2 py-2 md:px-8 md:py-[13px] font-medium rounded-md">
+        <span class="block bg-[#D01E24] text-[15px] md:text-2xl text-white px-2 py-2 md:px-8 md:py-[13px] font-medium rounded-md">
           Get Started Today! →
         </span>
       </a>
@@ -905,12 +933,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 
   <!-- Download Brochure -->
-  <button 
-    id="downloadBtn" 
-    class="w-1/2 py-3 bg-red-600 text-white font-semibold text-center hover:bg-red-700 transition"
-  >
-    Download Brochure
-  </button>
+ <button
+  class="downloadBtn w-1/2 py-3 bg-red-600 text-white font-semibold text-center hover:bg-red-700 transition"
+>
+  Download Brochure
+</button>
 </div>
 
 <!-- Brochure Download Modal -->
