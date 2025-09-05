@@ -235,6 +235,31 @@ function togglesCard(card) {
     }
   });
   // why maple bear hover ends here 
+  // Animation Css Satrt 
+   document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".animate-on-scroll");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const animationClass = entry.target.dataset.animate;
+
+          // Remove invisible class and add animation
+          entry.target.classList.remove("invisible");
+          entry.target.classList.add(animationClass);
+
+          // Stop observing after animation starts
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2 // Trigger when 20% of the div is visible
+    });
+
+    elements.forEach((el) => observer.observe(el));
+  });
+
+  // Animation css ends 
 // Modal form start 
 document.addEventListener("DOMContentLoaded", function () {
   const popupModal = document.getElementById("popup-modal");

@@ -12,6 +12,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>Best Preschool Franchise | Best Play School Franchise in India | Maple Bear Bear South Asia</title>
   <meta name="description" content="Start your own international play school franchise with Maple Bear - the best preschool chain. Explore preschool franchise opportunities in India.">
   <link rel="icon" type="image/png" href="images/favicon.ico">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -48,7 +49,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <style>
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
+  .fixed {
+  transform: none !important;
+}
+
  /* Remove any shadow from Swiper slides/cards */
 /* Remove all unwanted shadows from Swiper */
 .awardsSwiper,
@@ -166,16 +172,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Mobile Slides -->
       <div class="slide mobile-slide">
-        <img src="images/mobban.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
+        <img src="images/mobban1.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
       </div>
       <div class="slide mobile-slide">
-        <img src="images/mobban.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
+        <img src="images/mobban1.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
       </div>
     </div>
   </div>
 
   <!-- Form Section (Unchanged) -->
   <div
+   data-aos="zoom-in-left"
     id="form"
     class="w-full px-2 md:py-0 scroll-mt-24 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0"
   >
@@ -364,7 +371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <select 
     id="popupState" 
     name="popupState" 
-    class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
+    class="w-full border appearance-none border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
     onchange="updateSelectColor(this)"
   >
     <option value="" disabled selected>State</option>
@@ -388,7 +395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <select 
     id="popupInvestment" 
     name="popupInvestment" 
-    class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
+    class="w-full border border-gray-200 appearance-none bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
     onchange="updateSelectColor(this)"
   >
     <option value="" disabled selected>Investment Range</option>
@@ -404,7 +411,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <select 
     id="popupTimeline" 
     name="popupTimeline" 
-    class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
+    class="w-full border border-gray-200 appearance-none bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
     onchange="updateSelectColor(this)"
   >
     <option value="" disabled selected>Timeline to start the school</option>
@@ -460,7 +467,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
       <!-- Left Image -->
-      <div class="flex-1 flex justify-center relative">
+      <div data-aos="fade-right" class="flex-1 flex justify-center relative">
         <div class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg">
           <img src="images/aboutimage.webp"
                alt="Kids Learning"
@@ -475,7 +482,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Right Content -->
-      <div class="flex-1 text-center md:text-left">
+      <div data-aos="fade-left" class="flex-1 text-center md:text-left">
         <h2 class="text-3xl md:text-4xl font-extrabold text-[#0d1b42] mb-3">
           ABOUT US
         </h2>
@@ -509,13 +516,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Why Maple Bear Section -->
   <section class="py-12 px-6 md:px-12 lg:px-20">
-    <h2 class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
+    <h2 data-aos="fade-up" class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
       Why Maple Bear Stands Out?
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Card 1 -->
-  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="fade-right" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic1.webp" alt="Global Positioning"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -528,7 +535,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 2 -->
-  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="fade-up" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic2.webp" alt="Scalable Model"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -541,7 +548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 3 -->
-  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="fade-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic3.webp" alt="Proven Pedagogy"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -554,7 +561,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 4 -->
-  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="fade-right" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic4.png" alt="Reputation & Trust"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -567,7 +574,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 5 -->
-  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="fade-down" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic5.png" alt="Turnkey Support"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -580,7 +587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 6 -->
-  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="fade-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic6.webp" alt="High Demand Sector"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -603,7 +610,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="max-w-7xl mx-auto">
 
       <!-- Heading -->
-      <h2 class="text-2xl md:text-3xl font-extrabold text-[#0d1b42] text-center mb-10">
+      <h2 data-aos="zoom-in" class="text-2xl md:text-3xl font-extrabold text-[#0d1b42] text-center mb-10">
         Start Your Maple Bear Franchise <br class="hidden sm:block" /> in 5 Easy Steps
       </h2>
 
@@ -611,14 +618,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="flex flex-col xl:flex-row items-center gap-10">
 
         <!-- Left Image -->
-        <div class="flex-1 flex justify-center">
+        <div data-aos="zoom-in-right" class="flex-1 flex justify-center">
           <img src="images/startimage.webp"
                alt="Child Learning"
                class="rounded-xl shadow-lg w-full max-w-md md:max-w-full" />
         </div>
 
         <!-- Right Steps -->
-       <div class="flex-1 w-full">
+       <div data-aos="zoom-in-left" class="flex-1 w-full">
   <div class="space-y-6 max-w-xl">
   <!-- Step 1 -->
   <div class="flex items-start gap-3">
@@ -705,15 +712,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="max-w-7xl mx-auto text-center">
 
     <!-- Heading -->
-    <h2 class="text-2xl md:text-4xl font-extrabold text-[#0d1b42] mb-2">
+    <h2 data-aos="flip-left" class="text-2xl md:text-4xl font-extrabold text-[#0d1b42] mb-2">
       Our 360° Support
     </h2>
-    <p class="text-gray-600 mb-10 text-sm md:text-lg font-medium">
+    <p data-aos="flip-right" class="text-gray-600 mb-10 text-sm md:text-lg font-medium">
       We provide complete support to ensure seamless operations and growth
     </p>
 
     <!-- Desktop Circular Design -->
-    <div class="hidden xl:flex justify-center items-center w-full max-w-2xl md:max-w-3xl mx-auto relative">
+    <div data-aos="zoom-in-up" class="hidden xl:flex justify-center items-center w-full max-w-2xl md:max-w-3xl mx-auto relative">
 
       <!-- Center Logo -->
       <div class="absolute flex flex-col items-center justify-center w-36 h-36 bg-white rounded-full z-10">
@@ -793,7 +800,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Mobile-Friendly Design -->
    <!-- Mobile-Friendly Design -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:hidden mt-6">
+<div data-aos="zoom-in-up" class="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:hidden mt-6">
   
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
@@ -869,7 +876,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      <!-- Awards Section Start  -->
 
 <section class="bg-white">
-  <div class="w-full max-w-6xl mx-auto px-4 py-12">
+  <div data-aos="fade-up" class="w-full max-w-6xl mx-auto px-4 py-12">
     <!-- Heading -->
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
       Awards & Recognition
@@ -920,7 +927,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      <!-- Awards Section End  -->
 
      <!-- Faq Start -->
-<section class="bg-white px-2 flex justify-center items-center md:py-20 py-10">
+<section data-aos="fade-down" class="bg-white px-2 flex justify-center items-center md:py-20 py-10">
 
   <div class="bg-white rounded-2xl  shadow-lg p-6 md:p-8 w-full max-w-5xl border border-yellow-400">
     <h2 class="text-2xl md:text-3xl font-bold text-center text-[#0d1b42] mb-6">Frequently Asked Questions</h2>
@@ -945,7 +952,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="flex flex-col w-full max-w-[1390px] mx-auto md:flex-row items-center justify-between px-6 md:px-16 py-6 bg-white">
     
     <!-- Left Content -->
-    <div>
+    <div data-aos="fade-right">
       <h2 class="text-2xl md:text-5xl font-bold text-gray-900 mb-3">
         Ready to grow with us?
       </h2>
@@ -955,7 +962,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Right Button -->
-    <div class="mt-3 md:mt-0">
+    <div data-aos="fade-left" class="mt-3 md:mt-0">
       <a href="#form"
          class="inline-block bg-[#CC1316] hover:bg-red-700 md:px-7 md:py-5 py-2 px-2 rounded-md">
         <span class="block bg-[#CC1316] text-[15px] md:text-2xl text-white px-2 py-2 md:px-8 md:py-[13px] font-medium rounded-md">
@@ -1091,6 +1098,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- sticy button ends  -->
  <script src="script.js"></script>
+ <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    offset: 100,   // Start animation when 100px of element is visible
+    duration: 800, // Animation speed in ms
+    easing: 'ease-in-out',
+    once: true,    // true = animation happens only once
+  });
+</script>
+
 </body>
 </html>
    
