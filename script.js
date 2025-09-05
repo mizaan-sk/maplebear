@@ -380,7 +380,14 @@ document.addEventListener("DOMContentLoaded", function () {
       select.classList.add("text-black");
     }
   }
+// Navbar Code Start 
+ const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+// Navbar ends 
   
 // Sticky button start 
 // Get Elements

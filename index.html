@@ -51,10 +51,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
-  .fixed {
-  transform: none !important;
-}
-
  /* Remove any shadow from Swiper slides/cards */
 /* Remove all unwanted shadows from Swiper */
 .awardsSwiper,
@@ -133,29 +129,46 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3QN2GKS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Top Bar -->
-  <div class="fixed top-0 left-0 w-full bg-[#CC1316] text-white z-50 shadow-md">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-1">
-      
-      <!-- Logo -->
-      <div class="flex items-center space-x-3">
-        <img src="images/Maplelogo.webp" alt="Logo" class="h-[66px] w-auto" />
-      </div>
-      
-      <!-- Contact Info -->
-      <div class="flex items-center space-x-5 text-sm">
-        <div class="flex items-center space-x-2">
-          <i class="fas fa-phone-alt text-white"></i>
-          <a href="tel:+918800221488" class="hover:underline text-[15px] md:text-[19px]">+91 88 00 22 14 88</a>
-        </div>
-        <span class="hidden sm:block">|</span>
-        <div class="flex items-center space-x-2">
-          <i class="fas fa-envelope text-white"></i>
-          <a href="mailto:info@maplebear.in" class="hover:underline text-[15px] md:text-[21px]">info@maplebear.in</a>
-        </div>
-      </div>
+  <nav class="fixed top-0 left-0 w-full bg-[#CC1316] text-white shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-2">
+    
+    <!-- Logo -->
+    <div class="flex items-center">
+      <img src="images/Maplelogo.webp" alt="Maple Bear Logo" class="h-[60px] w-auto" />
+    </div>
 
+    <!-- Desktop Menu -->
+    <div class="hidden lg:flex items-center space-x-6">
+      <a href="#about-us" class="hover:text-gray-200 text-[15px] font-medium transition">About Us</a>
+      <a href="#why-choose-us" class="hover:text-gray-200 text-[15px] font-medium transition">Why Choose Us</a>
+      <a href="#start-with-maple-bear" class="hover:text-gray-200 text-[15px] font-medium transition">Start with Maple Bear</a>
+      <a href="#explore-360-support" class="hover:text-gray-200 text-[15px] font-medium transition">Explore 360° Support</a>
+      <a href="#faqs" class="hover:text-gray-200 text-[15px] font-medium transition">FAQs</a>
+    </div>
+
+    <!-- Hamburger Icon (Mobile) -->
+    <div class="lg:hidden">
+      <button id="menu-btn" class="focus:outline-none">
+        <svg class="w-7 h-7" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
   </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-[#CC1316] border-t border-red-400">
+    <div class="flex flex-col items-start px-6 py-4 space-y-3 text-white">
+      <a href="#why-choose-us" class="hover:text-gray-300 text-[16px] font-medium">Why Choose Us</a>
+      <a href="#franchise-opportunity" class="hover:text-gray-300 text-[16px] font-medium">Franchise Opportunity</a>
+      <a href="#how-it-works" class="hover:text-gray-300 text-[16px] font-medium">5 Easy Steps</a>
+      <a href="#support" class="hover:text-gray-300 text-[16px] font-medium">360° Support</a>
+      <a href="#investment" class="hover:text-gray-300 text-[16px] font-medium">Investment & Returns</a>
+      <a href="#success-stories" class="hover:text-gray-300 text-[16px] font-medium">Success Stories</a>
+      <a href="#faqs" class="hover:text-gray-300 text-[16px] font-medium">FAQs</a>
+    </div>
+  </div>
+</nav>
 
   <!-- Banner Section start  -->
 <div class="relative w-full overflow-hidden pt-[70px]">
@@ -164,25 +177,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="slider-wrapper">
       <!-- Desktop Slides -->
       <div class="slide desktop-slide">
-        <img src="images/bannerdektop.webp" alt="Desktop Slide 1" class="object-cover w-full h-full" />
+        <img src="images/desk1.webp" alt="Desktop Slide 1" class="object-cover w-full h-full" />
       </div>
       <div class="slide desktop-slide">
-        <img src="images/bannerdektop.webp" alt="Desktop Slide 2" class="object-cover w-full h-full" />
+        <img src="images/desk2.webp" alt="Desktop Slide 2" class="object-cover w-full h-full" />
       </div>
 
       <!-- Mobile Slides -->
       <div class="slide mobile-slide">
-        <img src="images/mobban1.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
+        <img src="images/mob1.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
       </div>
       <div class="slide mobile-slide">
-        <img src="images/mobban1.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
+        <img src="images/mob2.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
       </div>
     </div>
   </div>
 
   <!-- Form Section (Unchanged) -->
   <div
-   data-aos="zoom-in-left"
+     data-aos="fade-up"
     id="form"
     class="w-full px-2 md:py-0 scroll-mt-24 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0"
   >
@@ -463,11 +476,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
  <!-- About us Start  -->
-   <section class="relative w-full bg-white py-12 px-6 md:px-16">
+   <section id="about-us" class="scroll-mt-24 relative w-full bg-white py-12 px-6 md:px-16">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
       <!-- Left Image -->
-      <div data-aos="fade-right" class="flex-1 flex justify-center relative">
+      <div  data-aos="fade-up" class="flex-1 flex justify-center relative">
         <div class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg">
           <img src="images/aboutimage.webp"
                alt="Kids Learning"
@@ -482,7 +495,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
 
       <!-- Right Content -->
-      <div data-aos="fade-left" class="flex-1 text-center md:text-left">
+      <div  data-aos="fade-down" class="flex-1 text-center md:text-left">
         <h2 class="text-3xl md:text-4xl font-extrabold text-[#0d1b42] mb-3">
           ABOUT US
         </h2>
@@ -515,14 +528,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- About us end  -->
 
     <!-- Why Maple Bear Section -->
-  <section class="py-12 px-6 md:px-12 lg:px-20">
-    <h2 data-aos="fade-up" class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
+  <section id="why-choose-us" class="scroll-mt-24 py-12 px-6 md:px-12 lg:px-20">
+    <h2 data-aos="fade-right" class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
       Why Maple Bear Stands Out?
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 <!-- Card 1 -->
-  <div data-aos="fade-right" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic1.webp" alt="Global Positioning"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -535,7 +548,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 2 -->
-  <div data-aos="fade-up" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic2.webp" alt="Scalable Model"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -548,7 +561,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 3 -->
-  <div data-aos="fade-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic3.webp" alt="Proven Pedagogy"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -561,7 +574,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 4 -->
-  <div data-aos="fade-right" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic4.png" alt="Reputation & Trust"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -574,7 +587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 5 -->
-  <div data-aos="fade-down" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic5.png" alt="Turnkey Support"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -587,7 +600,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card 6 -->
-  <div data-aos="fade-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
     onclick="togglesCard(this)">
     <img src="images/ic6.webp" alt="High Demand Sector"
       class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
@@ -606,11 +619,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- Franchise Steps Section -->
-  <section class="w-full py-12 px-3 md:px-6 md:px-16 bg-white">
+  <section id="start-with-maple-bear" class="scroll-mt-24 w-full py-12 px-3 md:px-6 md:px-16 bg-white">
     <div class="max-w-7xl mx-auto">
 
       <!-- Heading -->
-      <h2 data-aos="zoom-in" class="text-2xl md:text-3xl font-extrabold text-[#0d1b42] text-center mb-10">
+      <h2 data-aos="fade-up" class="text-2xl md:text-3xl font-extrabold text-[#0d1b42] text-center mb-10">
         Start Your Maple Bear Franchise <br class="hidden sm:block" /> in 5 Easy Steps
       </h2>
 
@@ -618,14 +631,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="flex flex-col xl:flex-row items-center gap-10">
 
         <!-- Left Image -->
-        <div data-aos="zoom-in-right" class="flex-1 flex justify-center">
+        <div data-aos="zoom-in-up" class="flex-1 flex justify-center">
           <img src="images/startimage.webp"
                alt="Child Learning"
                class="rounded-xl shadow-lg w-full max-w-md md:max-w-full" />
         </div>
 
         <!-- Right Steps -->
-       <div data-aos="zoom-in-left" class="flex-1 w-full">
+       <div data-aos="zoom-in-down" class="flex-1 w-full">
   <div class="space-y-6 max-w-xl">
   <!-- Step 1 -->
   <div class="flex items-start gap-3">
@@ -708,19 +721,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
     <!-- Franchise Steps Section End -->
      <!-- 360 Support Section -->
-  <section class="w-full py-12 px-6 md:px-16 bg-white">
+  <section id="explore-360-support" class="scroll-mt-24 w-full py-12 px-6 md:px-16 bg-white">
   <div class="max-w-7xl mx-auto text-center">
 
     <!-- Heading -->
-    <h2 data-aos="flip-left" class="text-2xl md:text-4xl font-extrabold text-[#0d1b42] mb-2">
+    <h2 data-aos="zoom-in" class="text-2xl md:text-4xl font-extrabold text-[#0d1b42] mb-2">
       Our 360° Support
     </h2>
-    <p data-aos="flip-right" class="text-gray-600 mb-10 text-sm md:text-lg font-medium">
+    <p data-aos="zoom-in-up" class="text-gray-600 mb-10 text-sm md:text-lg font-medium">
       We provide complete support to ensure seamless operations and growth
     </p>
 
     <!-- Desktop Circular Design -->
-    <div data-aos="zoom-in-up" class="hidden xl:flex justify-center items-center w-full max-w-2xl md:max-w-3xl mx-auto relative">
+    <div data-aos="zoom-in-down" class="hidden xl:flex justify-center items-center w-full max-w-2xl md:max-w-3xl mx-auto relative">
 
       <!-- Center Logo -->
       <div class="absolute flex flex-col items-center justify-center w-36 h-36 bg-white rounded-full z-10">
@@ -800,10 +813,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Mobile-Friendly Design -->
    <!-- Mobile-Friendly Design -->
-<div data-aos="zoom-in-up" class="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:hidden mt-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 xl:hidden mt-6">
   
   <!-- Card -->
-  <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
+  <div data-aos="flip-up" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[10px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/box.png" alt="Set Up" class=" w-7 h-7 object-contain" />
     </div>
@@ -814,7 +827,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card -->
-  <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
+  <div data-aos="flip-down" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[10px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/document.png" alt="Admissions" class="w-7 h-7 object-contain" />
     </div>
@@ -825,7 +838,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card -->
-  <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
+  <div data-aos="flip-up" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/settings-3.png" alt="Guide" class="w-7 h-7 object-contain" />
     </div>
@@ -836,7 +849,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card -->
-  <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
+  <div data-aos="flip-down" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[8px] shadow-md flex-shrink-0">
       <img src="images/marketingicon.png" alt="Marketing" class="w-7 h-7 object-contain" />
     </div>
@@ -847,7 +860,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card -->
-  <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
+  <div data-aos="flip-up" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/open-book.png" alt="Academics" class="w-7 h-7 object-contain" />
     </div>
@@ -858,7 +871,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Card -->
-  <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
+  <div data-aos="flip-down" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/building.png" alt="Infrastructure" class="w-7 h-7 object-contain" />
     </div>
@@ -875,8 +888,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- 360 Support Section End -->
      <!-- Awards Section Start  -->
 
-<section class="bg-white">
-  <div data-aos="fade-up" class="w-full max-w-6xl mx-auto px-4 py-12">
+<section data-aos="zoom-in" class="bg-white">
+  <div class="w-full max-w-6xl mx-auto px-4 py-12">
     <!-- Heading -->
     <h2 class="text-2xl md:text-3xl font-bold text-center mb-8">
       Awards & Recognition
@@ -927,7 +940,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      <!-- Awards Section End  -->
 
      <!-- Faq Start -->
-<section data-aos="fade-down" class="bg-white px-2 flex justify-center items-center md:py-20 py-10">
+<section id="faqs" data-aos="zoom-in" class="scroll-mt-24 bg-white px-2 flex justify-center items-center md:py-20 py-10">
 
   <div class="bg-white rounded-2xl  shadow-lg p-6 md:p-8 w-full max-w-5xl border border-yellow-400">
     <h2 class="text-2xl md:text-3xl font-bold text-center text-[#0d1b42] mb-6">Frequently Asked Questions</h2>
@@ -949,10 +962,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <!-- Cta Start -->
-<section class="flex flex-col w-full max-w-[1390px] mx-auto md:flex-row items-center justify-between px-6 md:px-16 py-6 bg-white">
+<section  class="flex flex-col w-full max-w-[1390px] mx-auto md:flex-row items-center justify-between px-6 md:px-16 py-6 bg-white">
     
     <!-- Left Content -->
-    <div data-aos="fade-right">
+    <div data-aos="zoom-in-up">
       <h2 class="text-2xl md:text-5xl font-bold text-gray-900 mb-3">
         Ready to grow with us?
       </h2>
@@ -962,7 +975,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <!-- Right Button -->
-    <div data-aos="fade-left" class="mt-3 md:mt-0">
+    <div class="mt-3 md:mt-0" data-aos="zoom-in-down">
       <a href="#form"
          class="inline-block bg-[#CC1316] hover:bg-red-700 md:px-7 md:py-5 py-2 px-2 rounded-md">
         <span class="block bg-[#CC1316] text-[15px] md:text-2xl text-white px-2 py-2 md:px-8 md:py-[13px] font-medium rounded-md">
