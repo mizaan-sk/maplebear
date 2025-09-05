@@ -195,7 +195,46 @@ form.addEventListener("submit", async (e) => {
     });
   });
 // slider code of banner ends here 
+// why maple bear hover code  start 
+function togglesCard(card) {
+    // Only apply toggle on mobile
+    if (window.innerWidth >= 768) return;
 
+    const icon = card.querySelector('.card-icon');
+    const title = card.querySelector('.card-title');
+    const hoverText = card.querySelector('.card-hover');
+
+    // Toggle state
+    const isActive = card.classList.contains('active');
+
+    if (isActive) {
+      card.classList.remove('active');
+      card.style.backgroundColor = 'white';
+      icon.style.opacity = '1';
+      title.style.opacity = '1';
+      hoverText.style.opacity = '0';
+    } else {
+      card.classList.add('active');
+      card.style.backgroundColor = '#CC1316';
+      icon.style.opacity = '0';
+      title.style.opacity = '0';
+      hoverText.style.opacity = '1';
+    }
+  }
+
+  // Reset state when window resizes to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth >= 768) {
+      document.querySelectorAll(".card").forEach(card => {
+        card.classList.remove("active");
+        card.style.backgroundColor = "white";
+        card.querySelector(".card-icon").style.opacity = "1";
+        card.querySelector(".card-title").style.opacity = "1";
+        card.querySelector(".card-hover").style.opacity = "0";
+      });
+    }
+  });
+  // why maple bear hover ends here 
 // Modal form start 
 document.addEventListener("DOMContentLoaded", function () {
   const popupModal = document.getElementById("popup-modal");

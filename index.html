@@ -158,18 +158,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="slider-wrapper">
       <!-- Desktop Slides -->
       <div class="slide desktop-slide">
-        <img src="/images/bannerdektop.webp" alt="Desktop Slide 1" class="object-cover w-full h-full" />
+        <img src="images/bannerdektop.webp" alt="Desktop Slide 1" class="object-cover w-full h-full" />
       </div>
       <div class="slide desktop-slide">
-        <img src="/images/bannerdektop.webp" alt="Desktop Slide 2" class="object-cover w-full h-full" />
+        <img src="images/bannerdektop.webp" alt="Desktop Slide 2" class="object-cover w-full h-full" />
       </div>
 
       <!-- Mobile Slides -->
       <div class="slide mobile-slide">
-        <img src="/images/mobban.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
+        <img src="images/mobban.webp" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
       </div>
       <div class="slide mobile-slide">
-        <img src="/images/mobban.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
+        <img src="images/mobban.webp" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
       </div>
     </div>
   </div>
@@ -177,7 +177,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Form Section (Unchanged) -->
   <div
     id="form"
-    class="w-full px-2 md:py-0 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0"
+    class="w-full px-2 md:py-0 scroll-mt-24 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0"
   >
     <div class="w-full 2xl:pt-[130px] xl:pt-[70px] lg:max-w-full xl:max-w-[420px]">
       <div class="bg-white rounded-[20px] shadow-md p-3 sm:p-7 md:p-6 lg:p-6 xl:p-2 2xl:px-5 2xl:py-4 border-2 border-yellow-400">
@@ -231,7 +231,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <select 
                 id="state" 
                 name="state" 
-                class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
+                class="w-full border border-gray-200 bg-gray-100 rounded-lg !px-4 !py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
                     onchange="updateSelectColor(this)"
 >
                 <option value="" disabled selected>State</option>
@@ -255,7 +255,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <select 
                 id="investment" 
                 name="investment" 
-                class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
+                class="w-full border border-gray-200 bg-gray-100 rounded-lg !px-4 !py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
                     onchange="updateSelectColor(this)"
                 >
                 <option value="" disabled selected>Investment Range</option>
@@ -271,7 +271,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <select 
                 id="timeline" 
                 name="timeline" 
-                class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
+                class="w-full border border-gray-200 bg-gray-100 rounded-lg !px-4 !py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
                     onchange="updateSelectColor(this)"
                 >
                 <option value="" disabled selected>Timeline to start the school</option>
@@ -514,63 +514,83 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </h2>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Card 1 -->
-      <div class="group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out">
-        <!-- Icon -->
-        <img src="images/ic1.webp" alt="Global Positioning" class="md:w-[100px] md:h-[100px] w-[90px] h-[90px]  mb-4 transition duration-500 group-hover:opacity-0">
-        <!-- Title -->
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:opacity-0 transition duration-500">Global Positioning</h3>
-        <!-- Hover Text -->
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-          <p class="text-white text-center text-xl font-medium">650+ Schools in 40 Countries</p>
-        </div>
-      </div>
+<!-- Card 1 -->
+  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+    onclick="togglesCard(this)">
+    <img src="images/ic1.webp" alt="Global Positioning"
+      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+      Global Positioning
+    </h3>
+    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+      <p class="text-white text-center text-xl font-medium">650+ Schools in 40 Countries</p>
+    </div>
+  </div>
 
-      <!-- Card 2 -->
-      <div class="group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out">
-        <img src="images/ic2.webp" alt="Scalable Model" class="md:w-[100px] md:h-[100px] w-[90px] h-[90px]  mb-4 transition duration-500 group-hover:opacity-0">
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:opacity-0 transition duration-500">Scalable Model</h3>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-          <p class="text-white text-center text-xl font-medium">Innovation, Holistic Development, And Academic Excellence.</p>
-        </div>
-      </div>
+  <!-- Card 2 -->
+  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+    onclick="togglesCard(this)">
+    <img src="images/ic2.webp" alt="Scalable Model"
+      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+      Scalable Model
+    </h3>
+    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+      <p class="text-white text-center text-xl font-medium">Innovation, Holistic Development, And Academic Excellence.</p>
+    </div>
+  </div>
 
-      <!-- Card 3 -->
-      <div class="group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out">
-        <img src="images/ic3.webp" alt="Proven Pedagogy" class="md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:opacity-0 transition duration-500">Proven Pedagogy</h3>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-          <p class="text-white text-center text-xl font-medium">Comprehensive Assistance</p>
-        </div>
-      </div>
+  <!-- Card 3 -->
+  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+    onclick="togglesCard(this)">
+    <img src="images/ic3.webp" alt="Proven Pedagogy"
+      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+      Proven Pedagogy
+    </h3>
+    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+      <p class="text-white text-center text-xl font-medium">Comprehensive Assistance</p>
+    </div>
+  </div>
 
-      <!-- Card 4 -->
-      <div class="group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out">
-        <img src="images/ic4.png" alt="Reputation & Trust" class="md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:opacity-0 transition duration-500">Reputation & Trust</h3>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-          <p class="text-white text-center text-xl font-medium">Rising Global Demand For Premium International Schooling.</p>
-        </div>
-      </div>
+  <!-- Card 4 -->
+  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+    onclick="togglesCard(this)">
+    <img src="images/ic4.png" alt="Reputation & Trust"
+      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+      Reputation & Trust
+    </h3>
+    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+      <p class="text-white text-center text-xl font-medium">Rising Global Demand For Premium International Schooling.</p>
+    </div>
+  </div>
 
-      <!-- Card 5 -->
-      <div class="group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out">
-        <img src="images/ic5.png" alt="Turnkey Support" class="md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:opacity-0 transition duration-500">Turnkey Support</h3>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-          <p class="text-white text-center text-xl font-medium">Start Small And Scale Easily To Full K-12.</p>
-        </div>
-      </div>
+  <!-- Card 5 -->
+  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+    onclick="togglesCard(this)">
+    <img src="images/ic5.png" alt="Turnkey Support"
+      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+      Turnkey Support
+    </h3>
+    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+      <p class="text-white text-center text-xl font-medium">Start Small And Scale Easily To Full K-12.</p>
+    </div>
+  </div>
 
-      <!-- Card 6 -->
-      <div class="group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out">
-        <img src="images/ic6.webp" alt="High Demand Sector" class="md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-        <h3 class="text-lg font-semibold text-gray-800 group-hover:opacity-0 transition duration-500">High Demand Sector</h3>
-        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-          <p class="text-white text-center text-xl font-medium">20+ Years Of Trusted Quality Education.</p>
-        </div>
-      </div>
+  <!-- Card 6 -->
+  <div class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
+    onclick="togglesCard(this)">
+    <img src="images/ic6.webp" alt="High Demand Sector"
+      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+      High Demand Sector
+    </h3>
+    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+      <p class="text-white text-center text-xl font-medium">20+ Years Of Trusted Quality Education.</p>
+    </div>
+  </div>
 
     </div>
   </section>
@@ -579,7 +599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
   <!-- Franchise Steps Section -->
-  <section class="w-full py-12 px-6 md:px-16 bg-white">
+  <section class="w-full py-12 px-3 md:px-6 md:px-16 bg-white">
     <div class="max-w-7xl mx-auto">
 
       <!-- Heading -->
@@ -598,62 +618,84 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <!-- Right Steps -->
-        <div class="flex-1 w-full">
-          <ul class="space-y-6">
+       <div class="flex-1 w-full">
+  <div class="space-y-6 max-w-xl">
+  <!-- Step 1 -->
+  <div class="flex items-start gap-3">
+    <span
+      class="flex items-center md:mt-0 mt-1 justify-center text-[13px] md:w-8 md:h-8 w-6 h-6 rounded-full bg-red-600 text-white font-bold md:text-sm shrink-0"
+    >
+      1
+    </span>
+    <p class="text-gray-800 text-[17px] leading-relaxed">
+      Discuss the Maple Bear Opportunity with a Maple Bear representative
+    </p>
+  </div>
 
-            <!-- Step 1 -->
-            <li class="flex items-start gap-4">
-              <span class="flex items-center justify-center md:w-9 md:h-9 w-7 h-7 rounded-full bg-[#CC1316] text-white font-bold">1</span>
-              <p class="text-gray-700 text-sm md:text-[18px] mt-[4px] md:mt-[6px]">
-                Discuss the Maple Bear Opportunity with a Maple Bear representative
-              </p>
-            </li>
+  <!-- Step 2 -->
+  <div class="flex items-start gap-3">
+    <span
+      class="flex items-center md:mt-0 mt-1 justify-center text-[13px] md:w-8 md:h-8 w-6 h-6 rounded-full bg-red-600 text-white font-bold md:text-sm shrink-0"
+    >
+      2
+    </span>
+    <p class="text-gray-800 text-[17px] leading-relaxed">
+      Identify a good place according to Maple Bear requirements
+    </p>
+  </div>
 
-            <!-- Step 2 -->
-            <li class="flex items-start gap-4">
-              <span class="flex items-center justify-center md:w-9 md:h-9 w-7 h-7 rounded-full bg-[#CC1316] text-white font-bold">2</span>
-              <p class="text-gray-700 text-sm md:text-[18px] mt-[4px] md:mt-[6px]">
-                Identify a good place according to Maple Bear requirements
-              </p>
-            </li>
+  <!-- Step 3 -->
+  <div class="flex items-start gap-3">
+    <span
+      class="flex items-center md:mt-0 mt-[2px] justify-center text-[13px] md:w-8 md:h-8 w-6 h-6 rounded-full bg-red-600 text-white font-bold md:text-sm shrink-0"
+    >
+      3
+    </span>
+    <p class="text-gray-800 text-[17px] leading-relaxed">
+      Block the location by Signing an MOU/Agreement
+    </p>
+  </div>
 
-            <!-- Step 3 -->
-            <li class="flex items-start gap-4">
-               <span class="flex items-center justify-center md:w-9 md:h-9 w-7 h-7 rounded-full bg-[#CC1316] text-white font-bold">3</span>
-              <p class="text-gray-700 text-sm md:text-[18px] mt-[4px] md:mt-[6px]">
-                Block the location by Signing an MOU/Agreement
-              </p>
-            </li>
+  <!-- Step 4 -->
+  <div class="flex items-start gap-3">
+    <span
+      class="flex items-center md:mt-0 mt-1 justify-center text-[13px] md:w-8 md:h-8 w-6 h-6 rounded-full bg-red-600 text-white font-bold md:text-sm shrink-0"
+    >
+      4
+    </span>
+    <p class="text-gray-800 text-[17px] leading-relaxed">
+      Receive a detailed timeline and support to launch Maple Bear in your city
+    </p>
+  </div>
 
-            <!-- Step 4 -->
-            <li class="flex items-start gap-4">
-             <span class="flex items-center justify-center md:w-9 md:h-9 w-7 h-7 rounded-full bg-[#CC1316] text-white font-bold">4</span>
-              <p class="text-gray-700 text-sm md:text-[18px] mt-[4px] md:mt-[6px]">
-                Receive a detailed timeline and support to launch Maple Bear in your city
-              </p>
-            </li>
+  <!-- Step 5 -->
+  <div class="flex items-start gap-3">
+    <span
+      class="flex items-center md:mt-0 mt-[2px] justify-center text-[13px] md:w-8 md:h-8 w-6 h-6 rounded-full bg-red-600 text-white font-bold md:text-sm shrink-0"
+    >
+      5
+    </span>
+    <p class="text-gray-800 text-[17px] leading-relaxed">
+      Commencement of Operations
+    </p>
+  </div>
+</div>
 
-            <!-- Step 5 -->
-            <li class="flex items-start gap-4">
-        <span class="flex items-center justify-center md:w-9 md:h-9 w-7 h-7 rounded-full bg-[#CC1316] text-white font-bold">5</span>
-              <p class="text-gray-700 text-sm md:text-[18px] mt-[4px] md:mt-[6px]">
-                Commencement of Operations
-              </p>
-            </li>
-          </ul>
 
-          <!-- CTA Button -->
-          <div class="mt-8">
-            <a href="#form" class="flex w-full max-w-[250px] items-center gap-3 bg-[#CC1316] hover:bg-[#C53030] text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md">
-              Get Started Today!
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                   stroke="currentColor" class="w-5 h-5">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 5l7 7-7 7" />
-              </svg>
-            </a>
-          </div>
-        </div>
+  <!-- CTA Button -->
+  <div class="mt-8 grid md:place-items-start place-items-center">
+    <a href="#form"
+       class="flex w-full max-w-[220px] md:max-w-[250px] items-center gap-3 bg-[#CC1316] hover:bg-[#C53030] text-white font-semibold py-3 px-6 rounded-full transition duration-300 shadow-md">
+      Get Started Today!
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+           stroke="currentColor" class="w-5 h-5">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+  </div>
+</div>
+
       </div>
     </div>
   </section>
@@ -755,8 +797,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-    <div class="bg-[#CC1316] w-14 h-14 flex items-center justify-center rounded-full shadow-md flex-shrink-0">
-      <img src="https://img.icons8.com/ios-filled/32/ffffff/box.png" alt="Set Up" class="w-7 h-7 object-contain" />
+    <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[10px] shadow-md flex-shrink-0">
+      <img src="https://img.icons8.com/ios-filled/32/ffffff/box.png" alt="Set Up" class=" w-7 h-7 object-contain" />
     </div>
     <div>
       <h3 class="font-bold text-lg">Set Up</h3>
@@ -766,7 +808,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-    <div class="bg-[#CC1316] w-14 h-14 flex items-center justify-center rounded-full shadow-md flex-shrink-0">
+    <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[10px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/document.png" alt="Admissions" class="w-7 h-7 object-contain" />
     </div>
     <div>
@@ -777,7 +819,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-    <div class="bg-[#CC1316] w-14 h-14 flex items-center justify-center rounded-full shadow-md flex-shrink-0">
+    <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/settings-3.png" alt="Guide" class="w-7 h-7 object-contain" />
     </div>
     <div>
@@ -788,7 +830,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-    <div class="bg-[#CC1316] w-14 h-14 flex items-center justify-center rounded-full shadow-md flex-shrink-0">
+    <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[8px] shadow-md flex-shrink-0">
       <img src="images/marketingicon.png" alt="Marketing" class="w-7 h-7 object-contain" />
     </div>
     <div>
@@ -799,7 +841,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-    <div class="bg-[#CC1316] w-14 h-14 flex items-center justify-center rounded-full shadow-md flex-shrink-0">
+    <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/open-book.png" alt="Academics" class="w-7 h-7 object-contain" />
     </div>
     <div>
@@ -810,7 +852,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- Card -->
   <div class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
-    <div class="bg-[#CC1316] w-14 h-14 flex items-center justify-center rounded-full shadow-md flex-shrink-0">
+    <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
       <img src="https://img.icons8.com/ios-filled/32/ffffff/building.png" alt="Infrastructure" class="w-7 h-7 object-contain" />
     </div>
     <div>
