@@ -15,19 +15,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'maple-red': '#CC1316',
-            'maple-dark-red': '#C53030',
-          },
-          fontFamily: {
-            lato: ['Lato', 'Arial', 'Helvetica', 'sans-serif'],
-          }
-        }
-      }
-    }
+   tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        'maple-red': '#CC1316',
+        'maple-dark-red': '#C53030',
+      },
+      fontFamily: {
+        lato: ['Lato', 'Arial', 'Helvetica', 'sans-serif'],
+      },
+      keyframes: {
+        slideDown: {
+          "0%": { opacity: "0", transform: "translateY(-10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        slideUp: {
+          "0%": { opacity: "1", transform: "translateY(0)" },
+          "100%": { opacity: "0", transform: "translateY(-10px)" },
+        },
+      },
+      animation: {
+        slideDown: "slideDown 0.3s ease-out",
+        slideUp: "slideUp 0.3s ease-in",
+      },
+    },
+  },
+};
+
     window.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
       document.getElementById("utm_source").value = params.get("utm_source") || "";
@@ -129,9 +144,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3QN2GKS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Top Bar -->
-  <nav class="fixed top-0 left-0 w-full bg-[#CC1316] text-white shadow-md z-50">
+ <nav class="fixed top-0 left-0 w-full bg-[#CC1316] text-white shadow-md z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-2">
-    
     <!-- Logo -->
     <div class="flex items-center">
       <img src="images/Maplelogo.webp" alt="Maple Bear Logo" class="h-[60px] w-auto" />
@@ -139,18 +153,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Desktop Menu -->
     <div class="hidden lg:flex items-center space-x-6">
-      <a href="#about-us" class="hover:text-gray-200 text-[15px] font-medium transition">About Us</a>
-      <a href="#why-choose-us" class="hover:text-gray-200 text-[15px] font-medium transition">Why Choose Us</a>
-      <a href="#start-with-maple-bear" class="hover:text-gray-200 text-[15px] font-medium transition">Start with Maple Bear</a>
-      <a href="#explore-360-support" class="hover:text-gray-200 text-[15px] font-medium transition">Explore 360° Support</a>
-      <a href="#faqs" class="hover:text-gray-200 text-[15px] font-medium transition">FAQs</a>
+      <a href="#about-us" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">About Us</a>
+      <a href="#why-choose-us" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">Why Choose Us</a>
+      <a href="#start-with-maple-bear" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">Start with Maple Bear</a>
+      <a href="#explore-360-support" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">Explore 360° Support</a>
+      <a href="#faqs" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">FAQs</a>
     </div>
 
-    <!-- Hamburger Icon (Mobile) -->
+    <!-- Hamburger / Cross Icon (Mobile) -->
     <div class="lg:hidden">
       <button id="menu-btn" class="focus:outline-none">
-        <svg class="w-7 h-7" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        <!-- Hamburger Icon -->
+        <svg id="hamburger-icon" class="w-7 h-7 block" fill="none" stroke="white" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <!-- Cross Icon -->
+        <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="white" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
@@ -159,16 +180,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden bg-[#CC1316] border-t border-red-400">
     <div class="flex flex-col items-start px-6 py-4 space-y-3 text-white">
-      <a href="#why-choose-us" class="hover:text-gray-300 text-[16px] font-medium">Why Choose Us</a>
-      <a href="#franchise-opportunity" class="hover:text-gray-300 text-[16px] font-medium">Franchise Opportunity</a>
-      <a href="#how-it-works" class="hover:text-gray-300 text-[16px] font-medium">5 Easy Steps</a>
-      <a href="#support" class="hover:text-gray-300 text-[16px] font-medium">360° Support</a>
-      <a href="#investment" class="hover:text-gray-300 text-[16px] font-medium">Investment & Returns</a>
-      <a href="#success-stories" class="hover:text-gray-300 text-[16px] font-medium">Success Stories</a>
-      <a href="#faqs" class="hover:text-gray-300 text-[16px] font-medium">FAQs</a>
+      <a href="#about-us" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">About Us</a>
+      <a href="#why-choose-us" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">Why Choose Us</a>
+      <a href="#start-with-maple-bear" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">Start with Maple Bear</a>
+      <a href="#explore-360-support" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">Explore 360° Support</a>
+      <a href="#faqs" class="nav-link hover:text-gray-200 text-[15px] font-medium transition">FAQs</a>
     </div>
   </div>
 </nav>
+
+
 
   <!-- Banner Section start  -->
 <div class="relative w-full overflow-hidden pt-[70px]">
@@ -940,7 +961,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      <!-- Awards Section End  -->
 
      <!-- Faq Start -->
-<section id="faqs" data-aos="zoom-in" class="scroll-mt-16 bg-white px-2 flex justify-center items-center md:py-20 py-10">
+<section id="faqs" data-aos="zoom-in" class="scroll-mt-[160px] bg-white px-2 flex justify-center items-center md:py-20 py-10">
 
   <div class="bg-white rounded-2xl  shadow-lg p-6 md:p-8 w-full max-w-5xl border border-yellow-400">
     <h2 class="text-2xl md:text-3xl font-bold text-center text-[#0d1b42] mb-6">Frequently Asked Questions</h2>

@@ -382,11 +382,35 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 // Navbar Code Start 
  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
+const mobileMenu = document.getElementById("mobile-menu");
+const hamburgerIcon = document.getElementById("hamburger-icon");
+const closeIcon = document.getElementById("close-icon");
+const navLinks = document.querySelectorAll(".nav-link");
 
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+// Toggle menu open/close
+menuBtn.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+  hamburgerIcon.classList.toggle("hidden");
+  closeIcon.classList.toggle("hidden");
+});
+
+// Close menu when a link is clicked (mobile only)
+navLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    // Smooth scroll to section
+    e.preventDefault();
+    const targetId = link.getAttribute("href");
+    document.querySelector(targetId).scrollIntoView({ behavior: "smooth" });
+
+    // Close menu if mobile
+    if (window.innerWidth < 1024) {
+      mobileMenu.classList.add("hidden");
+      hamburgerIcon.classList.remove("hidden");
+      closeIcon.classList.add("hidden");
+    }
   });
+});
+
 // Navbar ends 
   
 // Sticky button start 
