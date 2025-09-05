@@ -185,7 +185,7 @@ form.addEventListener("submit", async (e) => {
     sliderWrapper.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
     // Auto-play every 3 seconds
-    setInterval(nextSlide, 3000);
+    setInterval(nextSlide, 5000);
 
     // Handle window resize
     window.addEventListener("resize", () => {
@@ -267,38 +267,53 @@ document.addEventListener("DOMContentLoaded", function () {
   const popupForm = document.getElementById("popup-enquiry-form");
 
   let modalShown = false; // ✅ Prevent reopening
+  let modalTimer = null;  // ✅ Timer reference
+  let scrollStarted = false; // ✅ To track first scroll
 
   // Get UTM params from URL or main form
   function getUTMParams() {
     const urlParams = new URLSearchParams(window.location.search);
 
-    // Fill popup hidden fields
-    document.getElementById("popup_utm_source").value = urlParams.get("utm_source") || document.getElementById("utm_source")?.value || "";
-    document.getElementById("popup_utm_ad").value = urlParams.get("utm_ad") || document.getElementById("utm_ad")?.value || "";
-    document.getElementById("popup_utm_campaign").value = urlParams.get("utm_campaign") || document.getElementById("utm_campaign")?.value || "";
-    document.getElementById("popup_utm_placement").value = urlParams.get("utm_placement") || document.getElementById("utm_placement")?.value || "";
-    document.getElementById("popup_utm_keyword").value = urlParams.get("utm_keyword") || document.getElementById("utm_keyword")?.value || "";
-    document.getElementById("popup_gclid").value = urlParams.get("gclid") || document.getElementById("gclid")?.value || "";
-    document.getElementById("popup_fbclid").value = urlParams.get("fbclid") || document.getElementById("fbclid")?.value || "";
+    document.getElementById("popup_utm_source").value =
+      urlParams.get("utm_source") || document.getElementById("utm_source")?.value || "";
+    document.getElementById("popup_utm_ad").value =
+      urlParams.get("utm_ad") || document.getElementById("utm_ad")?.value || "";
+    document.getElementById("popup_utm_campaign").value =
+      urlParams.get("utm_campaign") || document.getElementById("utm_campaign")?.value || "";
+    document.getElementById("popup_utm_placement").value =
+      urlParams.get("utm_placement") || document.getElementById("utm_placement")?.value || "";
+    document.getElementById("popup_utm_keyword").value =
+      urlParams.get("utm_keyword") || document.getElementById("utm_keyword")?.value || "";
+    document.getElementById("popup_gclid").value =
+      urlParams.get("gclid") || document.getElementById("gclid")?.value || "";
+    document.getElementById("popup_fbclid").value =
+      urlParams.get("fbclid") || document.getElementById("fbclid")?.value || "";
   }
 
-  // Call it on page load
   getUTMParams();
 
-  // Show modal after 20 seconds only once
-  const modalTimer = setTimeout(() => {
-    if (!modalShown) {
-      popupModal.classList.remove("hidden");
-      popupModal.classList.add("flex");
-      modalShown = true; // ✅ Prevent showing again
-    }
-  }, 20000);
+  // ✅ Show modal after 20s but only after user starts scrolling
+  function startModalTimer() {
+    if (scrollStarted || modalShown) return; // Prevent multiple triggers
+    scrollStarted = true;
+
+    modalTimer = setTimeout(() => {
+      if (!modalShown) {
+        popupModal.classList.remove("hidden");
+        popupModal.classList.add("flex");
+        modalShown = true; // ✅ Prevent showing again
+      }
+    }, 20000);
+  }
+
+  // ✅ Start timer on first scroll only
+  window.addEventListener("scroll", startModalTimer, { once: true });
 
   // Close modal
   popupClose.addEventListener("click", () => {
     popupModal.classList.add("hidden");
     modalShown = true; // ✅ Prevent reopening after close
-    clearTimeout(modalTimer);
+    if (modalTimer) clearTimeout(modalTimer);
   });
 
   // Handle form submission
@@ -353,10 +368,10 @@ document.addEventListener("DOMContentLoaded", function () {
         body: JSON.stringify(formData),
         mode: "no-cors"
       });
-      popupForm.reset();
 
+      popupForm.reset();
       modalShown = true; // ✅ Don't reopen after submission
-      clearTimeout(modalTimer);
+      if (modalTimer) clearTimeout(modalTimer);
 
       window.location.href = "thank-you.html";
     } catch (error) {
@@ -367,6 +382,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 
 
 // modal form ends 
