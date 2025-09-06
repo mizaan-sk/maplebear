@@ -84,8 +84,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /* Fix pagination bullets extra styles */
 .awardsSwiper .swiper-pagination-bullet {
-  box-shadow: none !important;
-  border: none !important;
+ background-color: #d1d5db; /* light gray */
+  opacity: 1; /* make sure inactive dots are fully visible */
+}
+
+/* Active dot */
+.awardsSwiper .swiper-pagination-bullet-active {
+  background-color: #D01E24; /* your red brand color */
 }
 
 /* If using Swiper scrollbar */
@@ -274,7 +279,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 id="state" 
                 name="state" 
                 class="w-full border border-gray-200 appearance-none bg-gray-100 rounded-lg !px-4 !py-3 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400 text-gray-500"
-                    onchange="updateSelectColor(this)"
+                    onchange="updateBannerCities(); updateSelectColor(this)"
 >
                 <option value="" disabled selected>State</option>
                <option value="Maharashtra">Maharashtra</option>
@@ -291,6 +296,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               </select>
               <p id="state-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
             </div>
+<!-- City  -->
+ <div class="mb-4" id="city-container-banner" style="display: none;">
+  <select 
+    id="bannerCity" 
+    name="broCity" 
+    class="w-full border appearance-none border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-400"
+    onchange="updateSelectColor(this)"
+  >
+    <option value="" disabled selected>Select City</option>
+  </select>
+              <p id="city-banner-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
+
+</div>
 
             <!-- Investment Range -->
             <div>
@@ -301,9 +319,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     onchange="updateSelectColor(this)"
                 >
                 <option value="" disabled selected>Investment Range</option>
-                <option value="30-50 Lakhs (Preschool)">30-50 Lakhs (Preschool)</option>
-                <option value="40-70 Lakhs (Pre+Elementary)">40-70 Lakhs (Pre+Elementary)</option>
-                <option value="Above 10 Crore (K-12 School)">Above 10 Crore (K-12 School)</option>
+                <option value="30-35 Lakhs">30-35 Lakhs</option>
+                <option value="35-40 Lakhs">35-40 Lakhs</option>
+                <option value="40 Lakhs And Above">40 Lakhs And Above</option>
               </select>
               <p id="investment-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
             </div>
@@ -407,7 +425,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     id="popupState" 
     name="popupState" 
     class="w-full border appearance-none border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-500"
-    onchange="updateSelectColor(this)"
+    onchange="updatePopupCities(); updateSelectColor(this)"
   >
     <option value="" disabled selected>State</option>
    <option value="Maharashtra">Maharashtra</option>
@@ -424,7 +442,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </select>
   <p id="popupState-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
 </div>
+<!-- City  -->
+ <div class="mb-4" id="city-container-popup" style="display: none;">
+  <select 
+    id="popupCity" 
+    name="popupCity" 
+    class="w-full border appearance-none border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-400"
+    onchange="updateSelectColor(this)"
+  >
+    <option value="" disabled selected>Select City</option>
+  </select>
+  <p id="popupCity-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
 
+</div>
 <!-- Investment Range -->
 <div>
   <select 
@@ -434,9 +464,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     onchange="updateSelectColor(this)"
   >
     <option value="" disabled selected>Investment Range</option>
-    <option value="30-50 Lakhs (Preschool)">30-50 Lakhs (Preschool)</option>
-                <option value="40-70 Lakhs (Pre+Elementary)">40-70 Lakhs (Pre+Elementary)</option>
-                <option value="Above 10 Crore (K-12 School)">Above 10 Crore (K-12 School)</option>
+     <option value="30-35 Lakhs">30-35 Lakhs</option>
+                <option value="35-40 Lakhs">35-40 Lakhs</option>
+                <option value="40 Lakhs And Above">40 Lakhs And Above</option>
   </select>
   <p id="popupInvestment-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
 </div>
@@ -952,7 +982,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div id="awards-wrapper" class="swiper-wrapper"></div>
 
           <!-- Pagination -->
-          <div class="swiper-pagination mt-4"></div>
+          <div class="swiper-pagination md:mt-9"></div>
         </div>
       </div>
     </div>
@@ -1112,7 +1142,76 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           class="w-full border border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-400">
         <p id="brochureEmail-error" class="text-red-500 text-xs mt-1 hidden"></p>
       </div>
+      <div class="mb-4">
+  <!-- State Dropdown -->
+  <select 
+    id="broState" 
+    name="broState" 
+    class="w-full border appearance-none border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-400"
+    onchange="updateCities(); updateSelectColor(this)"
+  >
+    <option value="" disabled selected>Select State</option>
+    <option value="Maharashtra">Maharashtra</option>
+    <option value="Delhi NCR">Delhi NCR</option>
+    <option value="Uttar Pradesh">Uttar Pradesh</option>
+    <option value="West Bengal">West Bengal</option>
+    <option value="Madhya Pradesh">Madhya Pradesh</option>
+    <option value="Bihar">Bihar</option>
+    <option value="Jharkhand">Jharkhand</option>
+    <option value="Chhattisgarh">Chhattisgarh</option>
+    <option value="Karnataka">Karnataka</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Kerala">Kerala</option>
+  </select>
+  <p id="broState-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
+</div>
 
+<!-- City Dropdown -->
+<div class="mb-4" id="city-container" style="display: none;">
+  <select 
+    id="broCity" 
+    name="broCity" 
+    class="w-full border appearance-none border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-400"
+    onchange="updateSelectColor(this)"
+  >
+    <option value="" disabled selected>Select City</option>
+  </select>
+  <p id="broCity-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
+
+</div>
+
+
+<!-- Investment Range -->
+<div>
+  <select 
+    id="broInvestment" 
+    name="broInvestment" 
+    class="w-full border appearance-none border-gray-300 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-400"
+    onchange="updateSelectColor(this)"
+  >
+    <option value="" disabled selected>Investment Range</option>
+ <option value="30-35 Lakhs">30-35 Lakhs</option>
+                <option value="35-40 Lakhs">35-40 Lakhs</option>
+                <option value="40 Lakhs And Above">40 Lakhs And Above</option>
+  </select>
+  <p id="broInvestment-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
+</div>
+
+<!-- Timeline -->
+<div>
+  <select 
+    id="broTimeline" 
+    name="broTimeline" 
+    class="w-full border border-gray-300 bg-gray-100 appearance-none rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 text-gray-400"
+    onchange="updateSelectColor(this)"
+  >
+    <option value="" disabled selected>Timeline to start the school</option>
+     <option value="6 months - 12 months">6 months - 12 months</option>
+                <option value="12 months - 24 months">12 months - 24 months</option>
+                <option value="24 months - 36 months">24 months - 36 months</option>
+  </select>
+  <p id="broTimeline-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
+</div>
       <!-- Hidden UTM Fields -->
       <input type="hidden" id="utm_source" name="utm_source">
       <input type="hidden" id="utm_ad" name="utm_ad">
