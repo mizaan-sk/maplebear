@@ -12,36 +12,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <title>Best Preschool Franchise | Best Play School Franchise in India | Maple Bear Bear South Asia</title>
   <meta name="description" content="Start your own international play school franchise with Maple Bear - the best preschool chain. Explore preschool franchise opportunities in India.">
   <link rel="icon" type="image/png" href="images/favicon.ico">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-   tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        'maple-red': '#CC1316',
-        'maple-dark-red': '#C53030',
-      },
-      fontFamily: {
-        lato: ['Lato', 'Arial', 'Helvetica', 'sans-serif'],
-      },
-      keyframes: {
-        slideDown: {
-          "0%": { opacity: "0", transform: "translateY(-10px)" },
-          "100%": { opacity: "1", transform: "translateY(0)" },
-        },
-        slideUp: {
-          "0%": { opacity: "1", transform: "translateY(0)" },
-          "100%": { opacity: "0", transform: "translateY(-10px)" },
-        },
-      },
-      animation: {
-        slideDown: "slideDown 0.3s ease-out",
-        slideUp: "slideUp 0.3s ease-in",
-      },
-    },
-  },
-};
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <script src="https://cdn.tailwindcss.com"></script> <script> tailwind.config = { theme: { extend: { colors: { 'maple-red': '#CC1316', 'maple-dark-red': '#C53030', }, fontFamily: { lato: ['Lato', 'Arial', 'Helvetica', 'sans-serif'], }, keyframes: { slideDown: { "0%": { opacity: "0", transform: "translateY(-10px)" }, "100%": { opacity: "1", transform: "translateY(0)" }, }, slideUp: { "0%": { opacity: "1", transform: "translateY(0)" }, "100%": { opacity: "0", transform: "translateY(-10px)" }, }, }, animation: { slideDown: "slideDown 0.3s ease-out", slideUp: "slideUp 0.3s ease-in", }, }, }, };
+
 
     window.addEventListener("DOMContentLoaded", () => {
       const params = new URLSearchParams(window.location.search);
@@ -54,13 +26,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       document.getElementById("fbclid").value = params.get("fbclid") || "";
     });
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+ <!-- Preconnect for Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Preload Fonts -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" media="all" />
     <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 />
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous" defer></script>
     <style>
   html {
     scroll-behavior: smooth;
@@ -152,9 +130,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
  <nav class="fixed top-0 left-0 w-full bg-[#CC1316] text-white shadow-md z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3 md:py-2">
     <!-- Logo -->
-    <div class="flex items-center">
-      <img src="images/Maplelogo.webp" alt="Maple Bear Logo" class="h-[60px] w-auto" />
-    </div>
+    <img src="images/Maplelogo.webp" 
+     alt="Maple Bear Logo" 
+     width="150" height="60"
+     class="h-[60px] w-auto" 
+     loading="lazy"
+     decoding="async"
+/>
 
     <!-- Desktop Menu -->
     <div class="hidden lg:flex items-center space-x-6">
@@ -203,19 +185,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="slider-wrapper">
       <!-- Desktop Slides -->
       <div class="slide desktop-slide">
-        <img src="images/desk1.webp" alt="Desktop Slide 1" class="object-cover w-full h-full" />
-      </div>
-      <div class="slide desktop-slide">
-        <img src="images/desk2.webp" alt="Desktop Slide 2" class="object-cover w-full h-full" />
-      </div>
+  <img src="images/desk1.webp" 
+       alt="Desktop Slide 1"
+       width="1920" height="800"
+       class="object-cover w-full h-full"
+       fetchpriority="high"
+       loading="eager"
+       decoding="async"
+  />
+</div>
+
+<div class="slide desktop-slide">
+  <img src="images/desk2.webp" 
+       alt="Desktop Slide 2"
+       width="1920" height="800"
+       class="object-cover w-full h-full"
+       loading="lazy"
+       decoding="async"
+  />
+</div>
 
       <!-- Mobile Slides -->
-      <div class="slide mobile-slide">
-        <img src="images/mob1.jpg" alt="Mobile Slide 1" class="w-full h-auto object-cover" />
-      </div>
-      <div class="slide mobile-slide">
-        <img src="images/mob2.jpg" alt="Mobile Slide 2" class="w-full h-auto object-cover" />
-      </div>
+     <div class="slide mobile-slide">
+    <img 
+      src="images/mob1.webp" 
+      alt="Mobile Slide 1" 
+      class="w-full h-auto object-cover"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <div class="slide mobile-slide">
+    <img 
+      src="images/mob2.webp" 
+      alt="Mobile Slide 2" 
+      class="w-full h-auto object-cover"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
     </div>
   </div>
 
@@ -225,7 +235,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     id="form"
     class="w-full px-2 md:py-0 scroll-mt-24 py-[20px] pb-1 sm:px-6 xl:px-10 xl:absolute xl:top-[2.7vw] xl:right-[10vw] xl:justify-end z-20 flex justify-center mt-4 xl:mt-0"
   >
-    <div class="w-full 2xl:pt-[130px] xl:pt-[110px] lg:max-w-full xl:max-w-[420px]">
+    <div class="w-full 2xl:pt-[130px] xl:pt-[80px] lg:max-w-full xl:max-w-[420px]">
       <div class="bg-white rounded-[20px] shadow-md p-3 sm:p-7 md:p-6 lg:p-6 xl:p-2 2xl:px-5 2xl:py-4 border-2 border-yellow-400">
         <div class="text-center mb-2">
           <h2 class="text-2xl font-bold text-[#0d1b42]">Partner With Us</h2>
@@ -528,144 +538,155 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
  <!-- About us Start  -->
-   <section id="about-us" class="scroll-mt-24 relative w-full bg-white py-12 px-6 md:px-16">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+ <section id="about-us" class="scroll-mt-24 relative w-full bg-white py-12 px-6 md:px-16">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
-      <!-- Left Image -->
-      <div  data-aos="fade-up" class="flex-1 flex justify-center relative">
-        <div class="w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-lg">
-          <img src="images/aboutimage.webp"
-               alt="Kids Learning"
-               class="w-full h-full object-cover" />
-        </div>
-        <!-- Decorative Dots -->
-        <div class="absolute top-0 left-0 flex gap-2">
-          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-          <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
-        </div>
+    <!-- Left Image -->
+    <div data-aos="fade-up" class="flex-1 flex justify-center relative">
+      <div class="w-72 sm:w-80 md:w-96 aspect-square rounded-full overflow-hidden shadow-lg">
+        <img src="images/circleimage.webp"
+             alt="Kids Learning"
+             class="w-full h-full object-cover" />
       </div>
-
-      <!-- Right Content -->
-      <div  data-aos="fade-down" class="flex-1 text-center md:text-left">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-[#0d1b42] mb-3">
-          ABOUT US
-        </h2>
-        <h3 class="text-lg md:text-xl font-bold text-[#0d1b42] mb-4">
-          Maple Bear: A Global Standard in Canadian Education
-        </h3>
-        <p class="text-gray-700 leading-relaxed text-sm md:text-base mb-6">
-          Maple Bear delivers a world-class blend of Canadian early childhood and K-12 methodologies,
-          carefully adapted to local cultures. Our schools provide immersive learning environments where
-          children develop creativity, critical thinking, and a lifelong love of learning. With a commitment
-          to academic excellence and global citizenship, Maple Bear empowers young minds to thrive in an
-          ever-changing world.
-        </p>
-
-        <!-- Button -->
-        <a href="#form" class="flex w-full max-w-[200px] items-center gap-3 bg-[#CC1316] hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 mx-auto md:mx-0">
-          Partner with us
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-               stroke="currentColor" class="w-5 h-5">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
+      <!-- Decorative Dots -->
+      <div class="absolute top-0 left-0 flex gap-2">
+        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
+        <span class="w-3 h-3 bg-yellow-400 rounded-full"></span>
       </div>
     </div>
 
-    <!-- Decorative Circle -->
-    <div class="absolute bottom-10 right-10 w-5 h-5 border-2 border-yellow-400 rounded-full hidden md:block"></div>
-  </section>
+    <!-- Right Content -->
+    <div data-aos="fade-down" class="flex-1 text-center md:text-left">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-[#0d1b42] mb-3">
+        ABOUT US
+      </h2>
+      <h3 class="text-lg md:text-xl font-bold text-[#0d1b42] mb-4">
+        Maple Bear: A Global Standard in Canadian Education
+      </h3>
+      <p class="text-gray-700 leading-relaxed text-sm md:text-base mb-6">
+        Maple Bear delivers a world-class blend of Canadian early childhood and K-12 methodologies,
+        carefully adapted to local cultures. Our schools provide immersive learning environments where
+        children develop creativity, critical thinking, and a lifelong love of learning. With a commitment
+        to academic excellence and global citizenship, Maple Bear empowers young minds to thrive in an
+        ever-changing world.
+      </p>
+
+      <!-- Button -->
+      <a href="#form" class="flex w-full max-w-[200px] items-center gap-3 bg-[#CC1316] hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300 mx-auto md:mx-0">
+        Partner with us
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+             stroke="currentColor" class="w-5 h-5">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+
+  <!-- Decorative Circle -->
+  <div class="absolute bottom-10 right-10 w-5 h-5 border-2 border-yellow-400 rounded-full hidden md:block"></div>
+</section>
+
   <!-- About us end  -->
 
     <!-- Why Maple Bear Section -->
-  <section id="why-choose-us" class="scroll-mt-24 py-12 px-6 md:px-12 lg:px-20">
-    <h2 data-aos="fade-right" class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
-      Why Maple Bear Stands Out?
-    </h2>
+ <section id="why-choose-us" class="scroll-mt-24 py-12 px-6 md:px-12 lg:px-20">
+  <h2 data-aos="fade-right" class="text-center text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-10">
+    Why Maple Bear Stands Out?
+  </h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Card 1 -->
-  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
-    onclick="togglesCard(this)">
-    <img src="images/ic1.webp" alt="Global Positioning"
-      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
-      Global Positioning
-    </h3>
-    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-      <p class="text-white text-center text-xl font-medium">650+ Schools in 40 Countries</p>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    
+    <!-- Card Template -->
+    <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer" onclick="togglesCard(this)">
+      <!-- Optimized icon -->
+      <img src="images/ic1.webp" 
+           alt="Global Positioning"
+           width="100" height="100"
+           class="card-icon w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+      <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+        Global Positioning
+      </h3>
+      <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+        <p class="text-white text-center text-xl font-medium">650+ Schools in 40 Countries</p>
+      </div>
     </div>
+
+    <!-- Repeat for other cards -->
+    <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer" onclick="togglesCard(this)">
+      <img src="images/ic2.webp" 
+           alt="Scalable Model"
+           width="100" height="100"
+           class="card-icon w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+      <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+        Scalable Model
+      </h3>
+      <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+        <p class="text-white text-center text-xl font-medium">Innovation, Holistic Development, And Academic Excellence.</p>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer" onclick="togglesCard(this)">
+      <img src="images/ic3.webp" 
+           alt="Proven Pedagogy"
+           width="100" height="100"
+           class="card-icon w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+      <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+        Proven Pedagogy
+      </h3>
+      <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+        <p class="text-white text-center text-xl font-medium">Comprehensive Assistance</p>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer" onclick="togglesCard(this)">
+      <img src="images/ic4.webp" 
+           alt="Reputation & Trust"
+           width="100" height="100"
+           class="card-icon w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+      <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+        Reputation & Trust
+      </h3>
+      <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+        <p class="text-white text-center text-xl font-medium">Rising Global Demand For Premium International Schooling.</p>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer" onclick="togglesCard(this)">
+      <img src="images/ic5.webp" 
+           alt="Turnkey Support"
+           width="100" height="100"
+           class="card-icon w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+      <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+        Turnkey Support
+      </h3>
+      <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+        <p class="text-white text-center text-xl font-medium">Start Small And Scale Easily To Full K-12.</p>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer" onclick="togglesCard(this)">
+      <img src="images/ic6.webp" 
+           alt="High Demand Sector"
+           width="100" height="100"
+           class="card-icon w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
+      <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
+        High Demand Sector
+      </h3>
+      <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
+        <p class="text-white text-center text-xl font-medium">20+ Years Of Trusted Quality Education.</p>
+      </div>
+    </div>
+
   </div>
+</section>
 
-  <!-- Card 2 -->
-  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
-    onclick="togglesCard(this)">
-    <img src="images/ic2.webp" alt="Scalable Model"
-      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
-      Scalable Model
-    </h3>
-    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-      <p class="text-white text-center text-xl font-medium">Innovation, Holistic Development, And Academic Excellence.</p>
-    </div>
-  </div>
-
-  <!-- Card 3 -->
-  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
-    onclick="togglesCard(this)">
-    <img src="images/ic3.webp" alt="Proven Pedagogy"
-      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
-      Proven Pedagogy
-    </h3>
-    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-      <p class="text-white text-center text-xl font-medium">Comprehensive Assistance</p>
-    </div>
-  </div>
-
-  <!-- Card 4 -->
-  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
-    onclick="togglesCard(this)">
-    <img src="images/ic4.png" alt="Reputation & Trust"
-      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
-      Reputation & Trust
-    </h3>
-    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-      <p class="text-white text-center text-xl font-medium">Rising Global Demand For Premium International Schooling.</p>
-    </div>
-  </div>
-
-  <!-- Card 5 -->
-  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
-    onclick="togglesCard(this)">
-    <img src="images/ic5.png" alt="Turnkey Support"
-      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
-      Turnkey Support
-    </h3>
-    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-      <p class="text-white text-center text-xl font-medium">Start Small And Scale Easily To Full K-12.</p>
-    </div>
-  </div>
-
-  <!-- Card 6 -->
-  <div data-aos="flip-left" class="card group relative bg-white shadow-md rounded-2xl p-6 flex flex-col items-center justify-center hover:bg-[#CC1316] transition duration-500 ease-in-out cursor-pointer"
-    onclick="togglesCard(this)">
-    <img src="images/ic6.webp" alt="High Demand Sector"
-      class="card-icon md:w-[100px] md:h-[100px] w-[90px] h-[90px] mb-4 transition duration-500 group-hover:opacity-0">
-    <h3 class="card-title text-lg font-semibold text-gray-800 transition duration-500 group-hover:opacity-0">
-      High Demand Sector
-    </h3>
-    <div class="card-hover absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-500 px-4">
-      <p class="text-white text-center text-xl font-medium">20+ Years Of Trusted Quality Education.</p>
-    </div>
-  </div>
-
-    </div>
-  </section>
 
   <!-- Why maple bear end  -->
 
@@ -685,6 +706,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Left Image -->
         <div data-aos="zoom-in-up" class="flex-1 flex justify-center">
           <img src="images/startimage.webp"
+          loading="lazy"
                alt="Child Learning"
                class="rounded-xl shadow-lg w-full max-w-md md:max-w-full" />
         </div>
@@ -789,7 +811,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <!-- Center Logo -->
       <div class="absolute flex flex-col items-center justify-center w-36 h-36 bg-white rounded-full z-10">
-        <img src="images/maple360.webp" alt="Maple Bear Logo" class="w-40" />
+        <img src="images/maple360.webp" alt="Maple Bear Logo" class="w-40" loading="lazy"/>
       </div>
 
       <!-- Circular Border -->
@@ -798,7 +820,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Set Up -->
         <div class="absolute top-[60px] right-[-250px] transform -translate-x-1/2 flex items-center w-56 gap-3 text-left">
           <div class="bg-[#CC1316] w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/32/ffffff/box.png" alt="Set Up">
+            <img src="images/box.png"  alt="Set Up">
           </div>
           <div class="flex-1">
             <h3 class="font-bold text-xl">Set Up</h3>
@@ -809,7 +831,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Admissions -->
         <div class="absolute top-[43%] right-[-195px] flex items-center w-56 gap-3 text-left">
           <div class="bg-[#CC1316] w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/32/ffffff/document.png" alt="Admissions">
+            <img src="images/document.png" alt="Admissions">
           </div>
           <div class="flex-1">
             <h3 class="font-bold text-xl">Admissions</h3>
@@ -820,7 +842,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Operational Guide -->
         <div class="absolute bottom-[10%] right-[-135px] flex items-center w-56 gap-3 text-left">
           <div class="bg-[#CC1316] w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 transition duration-300">
-            <img src="https://img.icons8.com/ios-filled/32/ffffff/settings-3.png" alt="Guide">
+            <img src="images/settings-3.png" alt="Guide">
           </div>
           <div class="flex-1">
             <h3 class="font-bold text-xl">Operational Material & Guide</h3>
@@ -842,7 +864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Academics -->
         <div class="absolute bottom-[42%] left-[-195px] flex items-center w-56 gap-3 text-right">
           <div class="bg-[#CC1316] w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 transition duration-300 order-2">
-            <img src="https://img.icons8.com/ios-filled/32/ffffff/open-book.png" alt="Academics">
+            <img src="images/open-book.png" alt="Academics">
           </div>
           <div class="flex-1 order-1">
             <h3 class="font-bold text-xl">Academics</h3>
@@ -853,7 +875,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- Infrastructure -->
         <div class="absolute top-[10.5%] left-[-130px] flex items-center w-56 gap-3 text-right">
           <div class="bg-[#CC1316] w-14 h-14 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 transition duration-300 order-2">
-            <img src="https://img.icons8.com/ios-filled/32/ffffff/building.png" alt="Infrastructure">
+            <img src="images/building.png" alt="Infrastructure">
           </div>
           <div class="flex-1 order-1">
             <h3 class="font-bold text-xl">Infrastructure</h3>
@@ -870,7 +892,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Card -->
   <div data-aos="flip-up" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[10px] shadow-md flex-shrink-0">
-      <img src="https://img.icons8.com/ios-filled/32/ffffff/box.png" alt="Set Up" class=" w-7 h-7 object-contain" />
+      <img src="images/box.png" alt="Set Up" class=" w-7 h-7 object-contain" />
     </div>
     <div>
       <h3 class="font-bold text-lg">Set Up</h3>
@@ -881,7 +903,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Card -->
   <div data-aos="flip-down" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[10px] shadow-md flex-shrink-0">
-      <img src="https://img.icons8.com/ios-filled/32/ffffff/document.png" alt="Admissions" class="w-7 h-7 object-contain" />
+      <img src="images/document.png" alt="Admissions" class="w-7 h-7 object-contain" />
     </div>
     <div>
       <h3 class="font-bold text-lg">Admissions</h3>
@@ -892,7 +914,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Card -->
   <div data-aos="flip-up" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
-      <img src="https://img.icons8.com/ios-filled/32/ffffff/settings-3.png" alt="Guide" class="w-7 h-7 object-contain" />
+      <img src="images/settings-3.png" alt="Guide" class="w-7 h-7 object-contain" />
     </div>
     <div>
       <h3 class="font-bold text-lg">Operational Material & Guide</h3>
@@ -914,7 +936,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Card -->
   <div data-aos="flip-up" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
-      <img src="https://img.icons8.com/ios-filled/32/ffffff/open-book.png" alt="Academics" class="w-7 h-7 object-contain" />
+      <img src="images/open-book.png" alt="Academics" class="w-7 h-7 object-contain" />
     </div>
     <div>
       <h3 class="font-bold text-lg">Academics</h3>
@@ -925,7 +947,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- Card -->
   <div data-aos="flip-down" class="flex items-start gap-4 p-5 bg-white rounded-lg shadow-md hover:shadow-xl transition">
     <div class="bg-[#CC1316] md:w-14 w-12 md:h-14 h-12 flex items-center justify-center rounded-full md:mt-0 mt-[6px] shadow-md flex-shrink-0">
-      <img src="https://img.icons8.com/ios-filled/32/ffffff/building.png" alt="Infrastructure" class="w-7 h-7 object-contain" />
+      <img src="images/building.png" alt="Infrastructure" class="w-7 h-7 object-contain" />
     </div>
     <div>
       <h3 class="font-bold text-lg">Infrastructure</h3>
@@ -1043,12 +1065,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="bg-[#CC1316] text-white px-6 py-6">
       <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between text-center md:text-left">
 
-        <!-- Logo -->
         <div class="flex justify-center md:justify-start mb-6 md:mb-0">
-          <img src="images/Maplelogo.webp" alt="Maple Bear" class="h-20">
+          <img src="images/Maplelogo.webp" alt="Maple Bear" class="h-20" loading="lazy">
         </div>
-
-          
           <!-- Follow Us -->
           <div class="px-6 py-4 flex flex-col items-center justify-center">
             <h3 class="font-semibold mb-2">Follow us</h3>

@@ -48,17 +48,20 @@ form.addEventListener("submit", async (e) => {
     document.getElementById("state-error").classList.remove("hidden");
     isValid = false;
   }
-   if (!city) {
+
+  if (!city) {
     document.getElementById("city-banner-error").textContent = "City is required";
     document.getElementById("city-banner-error").classList.remove("hidden");
     isValid = false;
   }
+
   if (!investment) {
     document.getElementById("investment-error").textContent =
       "Investment range is required";
     document.getElementById("investment-error").classList.remove("hidden");
     isValid = false;
   }
+
   if (!timeline) {
     document.getElementById("timeline-error").textContent =
       "Timeline is required";
@@ -74,30 +77,35 @@ form.addEventListener("submit", async (e) => {
   submitButton.innerHTML = "Submitting...";
   submitButton.disabled = true;
 
-  // Prepare form data
-  const formData = {
-    fullName: fullName,
-    phone: String(phone),
-    email: email,
-    state: state,
-    investment: investment,
-    city:city,
-    timeline: timeline,
-    utm_source: document.getElementById("utm_source").value,
-    utm_ad: document.getElementById("utm_ad").value,
-    utm_campaign: document.getElementById("utm_campaign").value,
-    utm_placement: document.getElementById("utm_placement").value,
-    utm_keyword: document.getElementById("utm_keyword").value,
-    gclid: document.getElementById("gclid").value,
-    fbclid: document.getElementById("fbclid").value,
-    form_source: "BannerForm",
-  };
-
-  console.log("Sending data:", formData);
-
   try {
+    // Fetch user IP
+    const ipResponse = await fetch("https://api.ipify.org?format=json");
+    const ipData = await ipResponse.json();
+    const userIP = ipData.ip || "";
+
+    // Prepare form data
+    const formData = {
+      fullName: fullName,
+      phone: String(phone),
+      email: email,
+      state: state,
+      city: city,
+      investment: investment,
+      timeline: timeline,
+      utm_source: document.getElementById("utm_source").value,
+      utm_ad: document.getElementById("utm_ad").value,
+      utm_campaign: document.getElementById("utm_campaign").value,
+      utm_placement: document.getElementById("utm_placement").value,
+      utm_keyword: document.getElementById("utm_keyword").value,
+      gclid: document.getElementById("gclid").value,
+      fbclid: document.getElementById("fbclid").value,
+      form_source: "BannerForm",
+      userIP: userIP, // <-- added IP
+    };
+
+
     await fetch(
-      "https://script.google.com/macros/s/AKfycbytrDpaKOkA0rl6-bgHJhPgZua_eBaN7KZKksqISCZj24j2z6z-5PGJ_jy06M4PpG8YVQ/exec",
+      "https://script.google.com/macros/s/AKfycbxfioeQtoT_DHgaAkP08xfg-RyoKhJ-9hgLWFKnmQX9BBgCgD0b3j3c9721Fej1Zd864w/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -106,15 +114,13 @@ form.addEventListener("submit", async (e) => {
       }
     );
 
-    // ✅ Reset the form after successful submission
+    // Reset the form
     form.reset();
-
-    // ✅ Reset select colors back to gray placeholder
     document.querySelectorAll("select").forEach((select) => {
-      select.style.color = "#6B7280"; // Tailwind's text-gray-500
+      select.style.color = "#6B7280";
     });
 
-    // ✅ Redirect to thank-you page
+    // Redirect to thank-you page
     window.location.href = "thank-you.html";
   } catch (error) {
     console.error("Submission error:", error);
@@ -124,6 +130,7 @@ form.addEventListener("submit", async (e) => {
     submitButton.disabled = false;
   }
 });
+
 
 // Slider Code of banner start
 document.addEventListener("DOMContentLoaded", function () {
@@ -443,8 +450,9 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("popupState-error").classList.remove("hidden");
       isValid = false;
     }
-     if (!city) {
-      document.getElementById("popupCity-error").textContent ="State is required";
+    if (!city) {
+      document.getElementById("popupCity-error").textContent =
+        "City is required";
       document.getElementById("popupCity-error").classList.remove("hidden");
       isValid = false;
     }
@@ -470,27 +478,33 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.innerHTML = "Submitting...";
     submitBtn.disabled = true;
 
-    const formData = {
-      fullName,
-      phone: String(phone),
-      email,
-      state,
-      city,
-      investment,
-      timeline,
-      utm_source: document.getElementById("popup_utm_source").value,
-      utm_ad: document.getElementById("popup_utm_ad").value,
-      utm_campaign: document.getElementById("popup_utm_campaign").value,
-      utm_placement: document.getElementById("popup_utm_placement").value,
-      utm_keyword: document.getElementById("popup_utm_keyword").value,
-      gclid: document.getElementById("popup_gclid").value,
-      fbclid: document.getElementById("popup_fbclid").value,
-      form_source: "Modalform",
-    };
-
     try {
+      // ✅ Get user IP
+      const ipResponse = await fetch("https://api.ipify.org?format=json");
+      const ipData = await ipResponse.json();
+      const userIP = ipData.ip || "";
+
+      const formData = {
+        fullName,
+        phone: String(phone),
+        email,
+        state,
+        city,
+        investment,
+        timeline,
+        utm_source: document.getElementById("popup_utm_source").value,
+        utm_ad: document.getElementById("popup_utm_ad").value,
+        utm_campaign: document.getElementById("popup_utm_campaign").value,
+        utm_placement: document.getElementById("popup_utm_placement").value,
+        utm_keyword: document.getElementById("popup_utm_keyword").value,
+        gclid: document.getElementById("popup_gclid").value,
+        fbclid: document.getElementById("popup_fbclid").value,
+        form_source: "Popupform",
+        userIP: userIP, // <-- Added IP
+      };
+
       await fetch(
-        "https://script.google.com/macros/s/AKfycbytrDpaKOkA0rl6-bgHJhPgZua_eBaN7KZKksqISCZj24j2z6z-5PGJ_jy06M4PpG8YVQ/exec",
+        "https://script.google.com/macros/s/AKfycbxfioeQtoT_DHgaAkP08xfg-RyoKhJ-9hgLWFKnmQX9BBgCgD0b3j3c9721Fej1Zd864w/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -506,12 +520,14 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "thank-you.html";
     } catch (error) {
       console.error("Error:", error);
+      alert("❌ Submission failed. Please try again.");
     } finally {
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
     }
   });
 });
+
 
 // modal form ends
 
@@ -560,12 +576,27 @@ navLinks.forEach((link) => {
 // Sticky button start
 // Get Elements
 // Get Elements
-const downloadBtns = document.querySelectorAll(".downloadBtn"); // ✅ Select all buttons
+const downloadBtns = document.querySelectorAll(".downloadBtn");
 const brochureModal = document.getElementById("brochureModal");
 const closeModal = document.getElementById("closeModal");
 const brochureForm = document.getElementById("brochureForm");
 const modalTitle = document.getElementById("modalTitle");
 const modalSubtitle = document.getElementById("modalSubtitle");
+
+let userIP = "";
+
+// ✅ Fetch User IP on Page Load
+async function fetchUserIP() {
+  try {
+    const response = await fetch("https://api.ipify.org?format=json");
+    const data = await response.json();
+    userIP = data.ip;
+  } catch (error) {
+    console.error("Failed to fetch IP:", error);
+    userIP = "Unknown";
+  }
+}
+fetchUserIP();
 
 // Attach click event to ALL download buttons
 downloadBtns.forEach((btn) => {
@@ -632,7 +663,6 @@ function prefillUTMFromLocalStorage() {
 getUTMParams();
 prefillUTMFromLocalStorage();
 
-// Handle Form Submission
 // Handle Form Submission
 brochureForm.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -708,7 +738,7 @@ brochureForm.addEventListener("submit", async (e) => {
 
   try {
     await fetch(
-      "https://script.google.com/macros/s/AKfycbytrDpaKOkA0rl6-bgHJhPgZua_eBaN7KZKksqISCZj24j2z6z-5PGJ_jy06M4PpG8YVQ/exec",
+      "https://script.google.com/macros/s/AKfycbxfioeQtoT_DHgaAkP08xfg-RyoKhJ-9hgLWFKnmQX9BBgCgD0b3j3c9721Fej1Zd864w/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -727,6 +757,7 @@ brochureForm.addEventListener("submit", async (e) => {
           utm_keyword,
           gclid,
           fbclid,
+          userIP, // ✅ Added User IP
           form_source: "BrochureForm",
         }),
         mode: "no-cors",
@@ -735,7 +766,7 @@ brochureForm.addEventListener("submit", async (e) => {
 
     // ✅ Trigger brochure download
     const link = document.createElement("a");
-    link.href = "Maple_Franchise.pdf"; // your PDF file
+    link.href = "Maple_Franchise.pdf";
     link.download = "Maple_Franchise.pdf";
     document.body.appendChild(link);
     link.click();
@@ -754,6 +785,7 @@ brochureForm.addEventListener("submit", async (e) => {
     submitBtn.disabled = false;
   }
 });
+
 
 // sticky button starts
 //  <!-- Awards Section Start  -->
