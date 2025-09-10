@@ -105,7 +105,7 @@ form.addEventListener("submit", async (e) => {
 
 
     await fetch(
-      "https://script.google.com/macros/s/AKfycbzwJs6W0GccXt6R8mW2Y-jUelxpeqW_7eHgTj3Wv72uhRqQOaXGNHfKKNAc6W2x1Os3dA/exec",
+      "https://script.google.com/macros/s/AKfycbz9-lGQt9BOQKmkpGf1HsCtV0haZxgwWBvp34sqk24l6xTEC5TCi1HAZUQHjQBQdG10zg/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -504,7 +504,7 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       await fetch(
-        "https://script.google.com/macros/s/AKfycbzwJs6W0GccXt6R8mW2Y-jUelxpeqW_7eHgTj3Wv72uhRqQOaXGNHfKKNAc6W2x1Os3dA/exec",
+        "https://script.google.com/macros/s/AKfycbz9-lGQt9BOQKmkpGf1HsCtV0haZxgwWBvp34sqk24l6xTEC5TCi1HAZUQHjQBQdG10zg/exec",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -738,7 +738,7 @@ brochureForm.addEventListener("submit", async (e) => {
 
   try {
     await fetch(
-      "https://script.google.com/macros/s/AKfycbzwJs6W0GccXt6R8mW2Y-jUelxpeqW_7eHgTj3Wv72uhRqQOaXGNHfKKNAc6W2x1Os3dA/exec",
+      "https://script.google.com/macros/s/AKfycbz9-lGQt9BOQKmkpGf1HsCtV0haZxgwWBvp34sqk24l6xTEC5TCi1HAZUQHjQBQdG10zg/exec",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
