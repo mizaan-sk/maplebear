@@ -408,11 +408,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Phone Number -->
       <div>
         <input 
-          type="tel" 
-          id="popupPhone" 
-          name="popupPhone" 
-          placeholder="Phone Number" 
-           maxlength="10" pattern="\d*"
+           type="tel" 
+    id="popupPhone" 
+    name="popupPhone" 
+    placeholder="Phone Number" 
+    pattern="[0-9]{10}" 
+    maxlength="10" 
+    inputmode="numeric"
+    required
           class="w-full border border-gray-200 bg-gray-100 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-red-400 placeholder-gray-500"
         />
         <p id="popupPhone-error" class="text-red-500 text-xs mt-[2px] hidden"></p>
