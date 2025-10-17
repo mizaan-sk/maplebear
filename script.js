@@ -1092,6 +1092,33 @@ const citiesData = {
   ],
   "Tamil Nadu": ["Hosur", "Chennai", "Coimbatore", "Trichy"],
   Kerala: ["Kochi", "Trivandrum", "Calicut", "Allappey"],
+  "Andhra Pradesh": ["Visakhapatnam", "Vijayawada", "Guntur", "Nellore", "Kurnool"],
+  "Arunachal Pradesh": ["Itanagar", "Tawang", "Pasighat", "Ziro", "Bomdila"],
+  Assam: ["Guwahati", "Silchar", "Dibrugarh", "Jorhat", "Tezpur"],
+  Goa: ["Panaji", "Margao", "Mapusa", "Ponda", "Vasco da Gama"],
+  Gujarat: ["Ahmedabad", "Surat", "Vadodara", "Rajkot", "Bhavnagar"],
+  Haryana: ["Faridabad", "Gurugram", "Panipat", "Ambala", "Hisar"],
+  "Himachal Pradesh": ["Shimla", "Mandi", "Solan", "Dharamshala", "Bilaspur"],
+  Manipur: ["Imphal", "Thoubal", "Kakching", "Ukhrul", "Churachandpur"],
+  Meghalaya: ["Shillong", "Tura", "Jowai", "Nongstoin", "Baghmara"],
+  Mizoram: ["Aizawl", "Lunglei", "Serchhip", "Champhai", "Kolasib"],
+  Nagaland: ["Dimapur", "Kohima", "Mokokchung", "Tuensang", "Wokha"],
+  Odisha: ["Bhubaneswar", "Cuttack", "Rourkela", "Berhampur", "Sambalpur"],
+  Punjab: ["Ludhiana", "Amritsar", "Jalandhar", "Patiala", "Bathinda"],
+  Rajasthan: ["Jaipur", "Jodhpur", "Kota", "Bikaner", "Udaipur"],
+  Sikkim: ["Gangtok", "Namchi", "Mangan", "Gyalshing", "Ravangla"],
+  Telangana: ["Hyderabad", "Warangal", "Nizamabad", "Khammam", "Karimnagar"],
+  Tripura: ["Agartala", "Udaipur", "Kailashahar", "Belonia", "Dharmanagar"],
+  Uttarakhand: ["Dehradun", "Haridwar", "Roorkee", "Haldwani", "Nainital"],
+
+  // ✅ Union Territories
+  "Andaman and Nicobar Islands": ["Port Blair", "Diglipur", "Mayabunder", "Rangat", "Garacharma"],
+  Chandigarh: ["Chandigarh"],
+  "Dadra and Nagar Haveli and Daman and Diu": ["Daman", "Diu", "Silvassa", "Naroli", "Samarvarni"],
+  "Jammu and Kashmir": ["Srinagar", "Jammu", "Anantnag", "Baramulla", "Kathua"],
+  Ladakh: ["Leh", "Kargil", "Diskit", "Nubra", "Tangtse"],
+  Lakshadweep: ["Kavaratti", "Agatti", "Minicoy", "Amini", "Kalpeni"],
+  Puducherry: ["Puducherry", "Karaikal", "Mahe", "Yanam"],
 };
 
 function updateCities() {
