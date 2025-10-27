@@ -389,13 +389,13 @@ document.addEventListener("DOMContentLoaded", function () {
     if (scrollStarted || modalShown) return; // Prevent multiple triggers
     scrollStarted = true;
 
-    modalTimer = setTimeout(() => {
-      if (!modalShown) {
-        popupModal.classList.remove("hidden");
-        popupModal.classList.add("flex");
-        modalShown = true; // ✅ Prevent showing again
-      }
-    }, 20000);
+    // modalTimer = setTimeout(() => {
+    //   if (!modalShown) {
+    //     popupModal.classList.remove("hidden");
+    //     popupModal.classList.add("flex");
+    //     modalShown = true; // ✅ Prevent showing again
+    //   }
+    // }, 20000);
   }
 
   // ✅ Start timer on first scroll only
